@@ -28,12 +28,12 @@ export const TrustSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-[#040E0C] border-b border-[#0F3D35]/80 relative overflow-hidden">
+    <section className="py-20 bg-[#121212] border-b border-[#0F3D35] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-4 space-y-4 text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0F3D35]/40 border border-[#0F3D35] text-[#10B981] text-xs font-semibold">
-              <ShieldCheck className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0A0A0A] border border-[#0F3D35] text-white text-xs font-semibold">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#0F3D35]" />
               <span>Enterprise Compliance</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold font-heading text-white">
@@ -48,8 +48,8 @@ export const TrustSection: React.FC = () => {
             {trustFeatures.map((item, idx) => {
               const Icon = item.icon;
               return (
-                <div key={idx} className="p-5 rounded-2xl bg-black border border-[#0F3D35] space-y-2">
-                  <div className="w-9 h-9 rounded-xl bg-[#051210] border border-[#0F3D35] flex items-center justify-center text-[#10B981]">
+                <div key={idx} className="p-5 rounded-2xl bg-[#0A0A0A] border border-[#0F3D35] space-y-2">
+                  <div className="w-9 h-9 rounded-xl bg-[#121212] border border-[#0F3D35] flex items-center justify-center text-[#0F3D35]">
                     <Icon className="w-4 h-4" />
                   </div>
                   <h3 className="text-sm font-bold text-white font-heading">{item.title}</h3>

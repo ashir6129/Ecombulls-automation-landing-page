@@ -6,14 +6,14 @@ import { Zap } from "lucide-react";
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-black border-t border-[#0F3D35] pt-16 pb-12 text-text-muted relative select-none">
+    <footer className="bg-[#0A0A0A] border-t border-[#0F3D35] pt-16 pb-12 text-text-muted relative select-none">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-[#0F3D35]/60">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-[#0F3D35]">
           {/* Brand Column */}
           <div className="md:col-span-5 space-y-4">
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl bg-[#051210] border border-[#0F3D35] flex items-center justify-center text-[#10B981]">
-                <Zap className="w-5 h-5 fill-[#0F3D35] text-[#10B981]" />
+              <div className="w-10 h-10 rounded-xl bg-[#0F3D35] border border-[#145449] flex items-center justify-center text-white">
+                <Zap className="w-5 h-5 fill-white text-white" />
               </div>
               <span className="text-xl font-extrabold font-heading text-white tracking-tight">
                 ECOMBULLS
@@ -24,9 +24,9 @@ export const Footer: React.FC = () => {
               The AI Operating System for High-Growth E-Commerce Agencies. Automating multi-channel inventory, repricing engines, and order routing across Amazon, eBay, Walmart, TikTok Shop, and Shopify.
             </p>
 
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#051210] border border-[#0F3D35] w-fit text-xs font-mono">
-              <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
-              <span className="text-white">System Engine: <strong className="text-[#10B981]">99.8% Online</strong></span>
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#121212] border border-[#0F3D35] w-fit text-xs font-mono">
+              <span className="w-2 h-2 rounded-full bg-[#0F3D35]" />
+              <span className="text-white">System Engine: <strong className="text-white">99.8% Online</strong></span>
             </div>
           </div>
 

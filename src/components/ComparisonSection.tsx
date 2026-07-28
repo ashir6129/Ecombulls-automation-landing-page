@@ -38,12 +38,12 @@ export const ComparisonSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 bg-[#040E0C] relative overflow-hidden border-b border-[#0F3D35]/80">
+    <section className="py-24 bg-[#121212] relative overflow-hidden border-b border-[#0F3D35]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0F3D35]/40 border border-[#0F3D35] text-[#10B981] text-xs font-semibold">
-            <Zap className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0A0A0A] border border-[#0F3D35] text-white text-xs font-semibold">
+            <Zap className="w-3.5 h-3.5 text-[#0F3D35]" />
             <span>Why Top Agencies Switch</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-white tracking-tight">
@@ -57,7 +57,7 @@ export const ComparisonSection: React.FC = () => {
         {/* Comparison Table / Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           {/* Left Column: Traditional Agency */}
-          <div className="lg:col-span-6 bg-black border border-red-900/40 rounded-3xl p-6 sm:p-8 space-y-6 relative overflow-hidden">
+          <div className="lg:col-span-6 bg-[#0A0A0A] border border-red-900/40 rounded-3xl p-6 sm:p-8 space-y-6 relative overflow-hidden">
             <div className="flex items-center justify-between pb-4 border-b border-red-900/30">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-red-950/40 border border-red-800/40 flex items-center justify-center text-red-400">
@@ -75,7 +75,7 @@ export const ComparisonSection: React.FC = () => {
 
             <div className="space-y-4">
               {comparisonItems.map((item, idx) => (
-                <div key={idx} className="p-4 rounded-xl bg-[#051210]/40 border border-red-900/20 space-y-1">
+                <div key={idx} className="p-4 rounded-xl bg-[#121212]/60 border border-red-900/20 space-y-1">
                   <div className="text-xs font-mono text-text-muted">{item.feature}</div>
                   <div className="text-sm text-red-300/90 flex items-start gap-2">
                     <XCircle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
@@ -87,31 +87,30 @@ export const ComparisonSection: React.FC = () => {
           </div>
 
           {/* Right Column: Ecombulls AI System */}
-          <div className="lg:col-span-6 bg-[#051210] border-2 border-[#0F3D35] rounded-3xl p-6 sm:p-8 space-y-6 relative shadow-[0_0_50px_rgba(15,61,53,0.3)] overflow-hidden">
-            {/* Glowing Accent Top Bar */}
-            <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#0F3D35] via-[#165B4F] to-[#10B981]" />
+          <div className="lg:col-span-6 bg-[#0A0A0A] border-2 border-[#0F3D35] rounded-3xl p-6 sm:p-8 space-y-6 relative shadow-2xl overflow-hidden">
+            <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#0F3D35]" />
 
             <div className="flex items-center justify-between pb-4 border-b border-[#0F3D35]">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[#0F3D35]/40 border border-[#0F3D35] flex items-center justify-center text-[#10B981]">
+                <div className="w-10 h-10 rounded-xl bg-[#0F3D35] border border-[#145449] flex items-center justify-center text-white">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
                 <div>
                   <h3 className="text-lg font-bold font-heading text-white">Ecombulls AI Engine</h3>
-                  <p className="text-xs text-[#10B981]">Autonomous & Microsecond Latency</p>
+                  <p className="text-xs text-white">Autonomous & Microsecond Latency</p>
                 </div>
               </div>
-              <span className="px-2.5 py-1 rounded bg-[#0F3D35] text-[#10B981] font-mono text-[10px] uppercase font-bold border border-[#165B4F]">
+              <span className="px-2.5 py-1 rounded bg-[#0F3D35] text-white font-mono text-[10px] uppercase font-bold border border-[#145449]">
                 RECOMMENDED
               </span>
             </div>
 
             <div className="space-y-4">
               {comparisonItems.map((item, idx) => (
-                <div key={idx} className="p-4 rounded-xl bg-black border border-[#0F3D35] space-y-1">
-                  <div className="text-xs font-mono text-[#10B981] font-semibold">{item.feature}</div>
+                <div key={idx} className="p-4 rounded-xl bg-[#121212] border border-[#0F3D35] space-y-1">
+                  <div className="text-xs font-mono text-white font-semibold">{item.feature}</div>
                   <div className="text-sm text-white font-medium flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#0F3D35] shrink-0 mt-0.5" />
                     <span>{item.ecombulls}</span>
                   </div>
                 </div>

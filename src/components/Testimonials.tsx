@@ -13,7 +13,6 @@ interface Testimonial {
   platforms: string[];
 }
 
-// [SAMPLE — REPLACE] - All testimonial entries below are sample agency quotes ready for client replacement before production launch.
 const TESTIMONIALS: Testimonial[] = [
   {
     id: 1,
@@ -61,12 +60,12 @@ export const Testimonials: React.FC = () => {
   const current = TESTIMONIALS[currentIndex];
 
   return (
-    <section id="results" className="py-24 bg-black relative overflow-hidden border-b border-[#0F3D35]/80">
+    <section id="results" className="py-24 bg-[#0A0A0A] relative overflow-hidden border-b border-[#0F3D35]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0F3D35]/40 border border-[#0F3D35] text-[#10B981] text-xs font-semibold">
-            <Quote className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#121212] border border-[#0F3D35] text-white text-xs font-semibold">
+            <Quote className="w-3.5 h-3.5 text-[#0F3D35]" />
             <span>Agency Partner Success Stories</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-white tracking-tight">
@@ -78,16 +77,16 @@ export const Testimonials: React.FC = () => {
         </div>
 
         {/* Carousel Container */}
-        <div className="max-w-4xl mx-auto bg-[#051210] border border-[#0F3D35] rounded-3xl p-8 sm:p-12 shadow-2xl relative">
+        <div className="max-w-4xl mx-auto bg-[#121212] border border-[#0F3D35] rounded-3xl p-8 sm:p-12 shadow-2xl relative">
           <div className="flex items-center justify-between mb-8">
-            <div className="flex items-center gap-1 text-amber-400">
+            <div className="flex items-center gap-1 text-white">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-amber-400" />
+                <Star key={i} className="w-5 h-5 fill-[#0F3D35] text-[#0F3D35]" />
               ))}
               <span className="text-xs font-bold text-white ml-2 font-mono">5.0 Verified Partner Rating</span>
             </div>
 
-            <div className="px-3 py-1 rounded-full bg-[#0F3D35]/60 border border-[#0F3D35] text-[#10B981] font-mono text-xs font-bold">
+            <div className="px-3 py-1 rounded-full bg-[#0F3D35] border border-[#145449] text-white font-mono text-xs font-bold">
               {current.metric}
             </div>
           </div>
@@ -100,7 +99,7 @@ export const Testimonials: React.FC = () => {
             <div>
               <div className="text-base font-bold font-heading text-white">{current.name}</div>
               <div className="text-xs text-text-muted">
-                {current.role} at <span className="text-[#10B981] font-medium">{current.agency}</span>
+                {current.role} at <span className="text-white font-medium">{current.agency}</span>
               </div>
             </div>
 
@@ -109,7 +108,7 @@ export const Testimonials: React.FC = () => {
                 {current.platforms.map((p, i) => (
                   <span
                     key={i}
-                    className="px-2.5 py-1 rounded bg-black border border-[#0F3D35] text-[10px] font-mono text-text-muted"
+                    className="px-2.5 py-1 rounded bg-[#0A0A0A] border border-[#0F3D35] text-[10px] font-mono text-text-muted"
                   >
                     {p}
                   </span>
@@ -120,17 +119,17 @@ export const Testimonials: React.FC = () => {
               <div className="flex items-center gap-2">
                 <button
                   onClick={handlePrev}
-                  className="p-2.5 rounded-xl bg-black border border-[#0F3D35] hover:border-[#165B4F] text-text-muted hover:text-white transition-colors"
+                  className="p-2.5 rounded-xl bg-[#0A0A0A] border border-[#0F3D35] hover:border-[#145449] text-text-muted hover:text-white transition-colors"
                   aria-label="Previous Testimonial"
                 >
-                  <ChevronLeft className="w-5 h-5 text-[#10B981]" />
+                  <ChevronLeft className="w-5 h-5 text-white" />
                 </button>
                 <button
                   onClick={handleNext}
-                  className="p-2.5 rounded-xl bg-black border border-[#0F3D35] hover:border-[#165B4F] text-text-muted hover:text-white transition-colors"
+                  className="p-2.5 rounded-xl bg-[#0A0A0A] border border-[#0F3D35] hover:border-[#145449] text-text-muted hover:text-white transition-colors"
                   aria-label="Next Testimonial"
                 >
-                  <ChevronRight className="w-5 h-5 text-[#10B981]" />
+                  <ChevronRight className="w-5 h-5 text-white" />
                 </button>
               </div>
             </div>

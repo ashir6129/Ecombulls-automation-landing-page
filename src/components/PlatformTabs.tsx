@@ -124,12 +124,12 @@ export const PlatformTabs: React.FC = () => {
   const currentPlatform = PLATFORMS_DATA.find((p) => p.id === activeTab) || PLATFORMS_DATA[0];
 
   return (
-    <section id="platforms" className="py-24 bg-black relative overflow-hidden border-b border-[#0F3D35]/80">
+    <section id="platforms" className="py-24 bg-[#0A0A0A] relative overflow-hidden border-b border-[#0F3D35]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#051210] border border-[#0F3D35] text-[#10B981] text-xs font-semibold">
-            <Layers className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#121212] border border-[#0F3D35] text-white text-xs font-semibold">
+            <Layers className="w-3.5 h-3.5 text-[#0F3D35]" />
             <span>Multi-Channel Integration Suite</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-white tracking-tight">
@@ -144,7 +144,7 @@ export const PlatformTabs: React.FC = () => {
         <div
           role="tablist"
           aria-label="E-commerce Supported Platforms"
-          className="flex items-center justify-start md:justify-center overflow-x-auto no-scrollbar gap-2 p-1.5 bg-[#051210] border border-[#0F3D35] rounded-2xl mb-12 max-w-4xl mx-auto"
+          className="flex items-center justify-start md:justify-center overflow-x-auto no-scrollbar gap-2 p-1.5 bg-[#121212] border border-[#0F3D35] rounded-2xl mb-12 max-w-4xl mx-auto"
         >
           {PLATFORMS_DATA.map((tab) => {
             const isActive = activeTab === tab.id;
@@ -163,7 +163,7 @@ export const PlatformTabs: React.FC = () => {
                 {isActive && (
                   <motion.div
                     layoutId="activeTabIndicator"
-                    className="absolute inset-0 bg-[#0F3D35] border border-[#165B4F] rounded-xl shadow-md -z-10"
+                    className="absolute inset-0 bg-[#0F3D35] border border-[#145449] rounded-xl shadow-md -z-10"
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
                   />
                 )}
@@ -184,19 +184,16 @@ export const PlatformTabs: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.3 }}
-            className="grid grid-cols-1 lg:grid-cols-12 gap-8 bg-[#051210] border border-[#0F3D35] rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden"
+            className="grid grid-cols-1 lg:grid-cols-12 gap-8 bg-[#121212] border border-[#0F3D35] rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden"
           >
-            {/* Ambient Background Glow */}
-            <div className="absolute top-0 right-0 w-80 h-80 bg-[#0F3D35]/30 blur-3xl rounded-full pointer-events-none" />
-
             {/* Left Content Column */}
             <div className="lg:col-span-7 space-y-6">
               <div className="flex items-center gap-3">
-                <span className="px-3 py-1 rounded-full bg-[#0F3D35]/40 border border-[#0F3D35] text-[#10B981] font-mono text-xs font-bold">
+                <span className="px-3 py-1 rounded-full bg-[#0F3D35] border border-[#145449] text-white font-mono text-xs font-bold">
                   {currentPlatform.badge}
                 </span>
                 <span className="text-xs font-mono text-text-muted flex items-center gap-1">
-                  <Zap className="w-3.5 h-3.5 text-[#10B981]" />
+                  <Zap className="w-3.5 h-3.5 text-[#0F3D35]" />
                   Sync Latency: <strong className="text-white">{currentPlatform.syncRate}</strong>
                 </span>
               </div>
@@ -205,7 +202,7 @@ export const PlatformTabs: React.FC = () => {
                 <h3 className="text-2xl sm:text-3xl font-bold font-heading text-white mb-2">
                   {currentPlatform.name}
                 </h3>
-                <p className="text-[#10B981] text-sm font-medium">{currentPlatform.subtitle}</p>
+                <p className="text-text-muted text-sm font-medium">{currentPlatform.subtitle}</p>
               </div>
 
               <p className="text-text-muted text-sm leading-relaxed">{currentPlatform.description}</p>
@@ -219,9 +216,9 @@ export const PlatformTabs: React.FC = () => {
                   {currentPlatform.features.map((feat, i) => (
                     <div
                       key={i}
-                      className="flex items-start gap-2.5 p-3 rounded-xl bg-black border border-[#0F3D35] text-xs text-white"
+                      className="flex items-start gap-2.5 p-3 rounded-xl bg-[#0A0A0A] border border-[#0F3D35] text-xs text-white"
                     >
-                      <Check className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
+                      <Check className="w-4 h-4 text-[#0F3D35] shrink-0 mt-0.5" />
                       <span>{feat}</span>
                     </div>
                   ))}
@@ -229,15 +226,15 @@ export const PlatformTabs: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Column: Platform Tech Specs Card */}
-            <div className="lg:col-span-5 flex flex-col justify-between bg-black border border-[#0F3D35] p-6 rounded-2xl space-y-6">
+            {/* Right Column */}
+            <div className="lg:col-span-5 flex flex-col justify-between bg-[#0A0A0A] border border-[#0F3D35] p-6 rounded-2xl space-y-6">
               <div>
                 <div className="flex items-center justify-between pb-4 border-b border-[#0F3D35] mb-6">
                   <div className="flex items-center gap-2">
-                    <Cpu className="w-5 h-5 text-[#10B981]" />
+                    <Cpu className="w-5 h-5 text-[#0F3D35]" />
                     <span className="text-sm font-bold text-white font-heading">Engine Benchmarks</span>
                   </div>
-                  <span className="text-[10px] font-mono text-[#10B981] bg-[#0F3D35]/40 px-2 py-0.5 rounded border border-[#0F3D35]">
+                  <span className="text-[10px] font-mono text-white bg-[#0F3D35] px-2 py-0.5 rounded border border-[#145449]">
                     LIVE API Status
                   </span>
                 </div>
@@ -246,7 +243,7 @@ export const PlatformTabs: React.FC = () => {
                   {currentPlatform.specs.map((spec, idx) => (
                     <div key={idx} className="flex items-center justify-between text-xs py-2 border-b border-[#0F3D35]/50">
                       <span className="text-text-muted font-medium">{spec.label}</span>
-                      <span className="font-mono font-bold text-white bg-[#051210] px-2.5 py-1 rounded border border-[#0F3D35]">
+                      <span className="font-mono font-bold text-white bg-[#121212] px-2.5 py-1 rounded border border-[#0F3D35]">
                         {spec.value}
                       </span>
                     </div>
@@ -257,17 +254,17 @@ export const PlatformTabs: React.FC = () => {
               <div className="pt-4 border-t border-[#0F3D35] space-y-3">
                 <div className="flex items-center justify-between text-xs text-text-muted">
                   <span>API SLA Uptime:</span>
-                  <span className="text-[#10B981] font-mono font-bold">99.98% Guaranteed</span>
+                  <span className="text-white font-mono font-bold">99.98% Guaranteed</span>
                 </div>
                 <button
                   onClick={() => {
                     const auditBtn = document.querySelector("header button");
                     if (auditBtn) (auditBtn as HTMLButtonElement).click();
                   }}
-                  className="w-full py-3 rounded-xl bg-[#0F3D35] border border-[#165B4F] text-white font-bold text-xs hover:bg-[#165B4F] transition-all flex items-center justify-center gap-2"
+                  className="w-full py-3 rounded-xl bg-[#0F3D35] border border-[#145449] text-white font-bold text-xs hover:bg-[#145449] transition-all flex items-center justify-center gap-2"
                 >
                   <span>Request {currentPlatform.name} Blueprint</span>
-                  <ArrowUpRight className="w-4 h-4 text-[#10B981]" />
+                  <ArrowUpRight className="w-4 h-4 text-white" />
                 </button>
               </div>
             </div>
