@@ -9,37 +9,23 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#0D0E08",
-        cream: "#FDFBD4",
-        sage: "#D9D7B6",
-        taupe: "#878672",
-        olive: {
-          DEFAULT: "#545333",
-          dark: "#373621",
-          hover: "#6B6A43",
-        },
+        background: "#E9ECE6",
+        light: "#E9ECE6",
+        sage: "#BCCBC9",
+        dark: "#141C1B",
         surface: {
-          DEFAULT: "#16170E",
-          elevated: "#202215",
-          hover: "#2A2D1C",
-        },
-        accent: {
-          DEFAULT: "#545333",
-          hover: "#6B6A43",
-          bright: "#D9D7B6",
-          blue: "#545333",
-          cyan: "#878672",
-          glow: "rgba(84, 83, 51, 0.3)",
+          DEFAULT: "#BCCBC9",
+          light: "#E9ECE6",
+          dark: "#141C1B",
         },
         border: {
-          DEFAULT: "#545333",
-          bright: "#878672",
-          glow: "#545333",
+          DEFAULT: "#BCCBC9",
+          dark: "#141C1B",
         },
         text: {
-          primary: "#FDFBD4",
-          muted: "#D9D7B6",
-          dim: "#878672",
+          primary: "#141C1B",
+          muted: "#141C1B",
+          dim: "#3D4E4C",
         },
       },
       fontFamily: {
