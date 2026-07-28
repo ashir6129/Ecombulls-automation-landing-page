@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Star, ChevronLeft, ChevronRight, Quote, CheckCircle2 } from "lucide-react";
+import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 interface Testimonial {
   id: number;
@@ -61,11 +61,11 @@ export const Testimonials: React.FC = () => {
   const current = TESTIMONIALS[currentIndex];
 
   return (
-    <section id="results" className="py-24 bg-background relative overflow-hidden">
+    <section id="results" className="py-24 bg-black relative overflow-hidden border-b border-[#0F3D35]/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/30 text-accent text-xs font-semibold">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0F3D35]/40 border border-[#0F3D35] text-[#10B981] text-xs font-semibold">
             <Quote className="w-3.5 h-3.5" />
             <span>Agency Partner Success Stories</span>
           </div>
@@ -78,7 +78,7 @@ export const Testimonials: React.FC = () => {
         </div>
 
         {/* Carousel Container */}
-        <div className="max-w-4xl mx-auto bg-surface border border-border rounded-3xl p-8 sm:p-12 shadow-2xl relative">
+        <div className="max-w-4xl mx-auto bg-[#051210] border border-[#0F3D35] rounded-3xl p-8 sm:p-12 shadow-2xl relative">
           <div className="flex items-center justify-between mb-8">
             <div className="flex items-center gap-1 text-amber-400">
               {[...Array(5)].map((_, i) => (
@@ -87,7 +87,7 @@ export const Testimonials: React.FC = () => {
               <span className="text-xs font-bold text-white ml-2 font-mono">5.0 Verified Partner Rating</span>
             </div>
 
-            <div className="px-3 py-1 rounded-full bg-accent/10 border border-accent/30 text-accent font-mono text-xs font-bold">
+            <div className="px-3 py-1 rounded-full bg-[#0F3D35]/60 border border-[#0F3D35] text-[#10B981] font-mono text-xs font-bold">
               {current.metric}
             </div>
           </div>
@@ -96,12 +96,11 @@ export const Testimonials: React.FC = () => {
             &ldquo;{current.quote}&rdquo;
           </p>
 
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-6 border-t border-border">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-6 border-t border-[#0F3D35]">
             <div>
-              {/* Note: [SAMPLE — REPLACE] comment per prompt instructions */}
               <div className="text-base font-bold font-heading text-white">{current.name}</div>
               <div className="text-xs text-text-muted">
-                {current.role} at <span className="text-accent font-medium">{current.agency}</span>
+                {current.role} at <span className="text-[#10B981] font-medium">{current.agency}</span>
               </div>
             </div>
 
@@ -110,7 +109,7 @@ export const Testimonials: React.FC = () => {
                 {current.platforms.map((p, i) => (
                   <span
                     key={i}
-                    className="px-2.5 py-1 rounded bg-surface-elevated border border-border text-[10px] font-mono text-text-muted"
+                    className="px-2.5 py-1 rounded bg-black border border-[#0F3D35] text-[10px] font-mono text-text-muted"
                   >
                     {p}
                   </span>
@@ -121,17 +120,17 @@ export const Testimonials: React.FC = () => {
               <div className="flex items-center gap-2">
                 <button
                   onClick={handlePrev}
-                  className="p-2.5 rounded-xl bg-surface-elevated border border-border hover:border-accent text-text-muted hover:text-white transition-colors"
+                  className="p-2.5 rounded-xl bg-black border border-[#0F3D35] hover:border-[#165B4F] text-text-muted hover:text-white transition-colors"
                   aria-label="Previous Testimonial"
                 >
-                  <ChevronLeft className="w-5 h-5" />
+                  <ChevronLeft className="w-5 h-5 text-[#10B981]" />
                 </button>
                 <button
                   onClick={handleNext}
-                  className="p-2.5 rounded-xl bg-surface-elevated border border-border hover:border-accent text-text-muted hover:text-white transition-colors"
+                  className="p-2.5 rounded-xl bg-black border border-[#0F3D35] hover:border-[#165B4F] text-text-muted hover:text-white transition-colors"
                   aria-label="Next Testimonial"
                 >
-                  <ChevronRight className="w-5 h-5" />
+                  <ChevronRight className="w-5 h-5 text-[#10B981]" />
                 </button>
               </div>
             </div>

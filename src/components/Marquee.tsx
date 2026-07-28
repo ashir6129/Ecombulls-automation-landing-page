@@ -13,9 +13,8 @@ export const Marquee: React.FC = () => {
   ];
 
   return (
-    <div className="w-full bg-surface-elevated/80 border-b border-border py-2.5 overflow-hidden marquee-mask relative select-none">
+    <div className="w-full bg-black border-b border-[#0F3D35]/80 py-2.5 overflow-hidden marquee-mask relative select-none">
       <div className="flex w-max animate-marquee-slow hover:[animation-play-state:paused] gap-12 items-center">
-        {/* Render twice for seamless loop */}
         {[...tickerItems, ...tickerItems, ...tickerItems].map((item, index) => {
           const Icon = item.icon;
           return (
@@ -23,9 +22,9 @@ export const Marquee: React.FC = () => {
               key={index}
               className="flex items-center gap-2.5 text-xs font-mono text-text-muted whitespace-nowrap"
             >
-              <Icon className="w-3.5 h-3.5 text-accent shrink-0" />
-              <span>{item.text}</span>
-              <span className="text-border-bright font-sans font-bold ml-6">///</span>
+              <Icon className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
+              <span className="text-gray-300">{item.text}</span>
+              <span className="text-[#0F3D35] font-sans font-bold ml-6">///</span>
             </div>
           );
         })}

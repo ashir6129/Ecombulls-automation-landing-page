@@ -19,7 +19,6 @@ export const AuditModal: React.FC<AuditModalProps> = ({ isOpen, onClose }) => {
   const [errorMessage, setErrorMessage] = useState("");
   const [leadId, setLeadId] = useState("");
 
-  // Close on Escape key press
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape" && isOpen) {
@@ -84,7 +83,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({ isOpen, onClose }) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={resetForm}
-          className="fixed inset-0 bg-background/80 backdrop-blur-md"
+          className="fixed inset-0 bg-black/85 backdrop-blur-md"
         />
 
         {/* Modal Container */}
@@ -93,15 +92,15 @@ export const AuditModal: React.FC<AuditModalProps> = ({ isOpen, onClose }) => {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full max-w-lg bg-surface border border-border-bright rounded-2xl p-6 sm:p-8 shadow-2xl z-10 overflow-hidden"
+          className="relative w-full max-w-lg bg-black border-2 border-[#0F3D35] rounded-2xl p-6 sm:p-8 shadow-[0_0_60px_rgba(15,61,53,0.5)] z-10 overflow-hidden"
         >
           {/* Glowing Top Accent Line */}
-          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent via-accent-cyan to-accent-blue" />
+          <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#0F3D35] via-[#165B4F] to-[#10B981]" />
 
           {/* Close Button */}
           <button
             onClick={resetForm}
-            className="absolute top-4 right-4 p-2 text-text-muted hover:text-white rounded-lg hover:bg-surface-elevated transition-colors"
+            className="absolute top-4 right-4 p-2 text-text-muted hover:text-white rounded-lg hover:bg-[#051210] transition-colors"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
@@ -109,7 +108,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({ isOpen, onClose }) => {
 
           {status === "success" ? (
             <div className="text-center py-6 space-y-4">
-              <div className="w-16 h-16 bg-accent/10 border border-accent/30 rounded-full flex items-center justify-center mx-auto text-accent">
+              <div className="w-16 h-16 bg-[#0F3D35]/40 border border-[#0F3D35] rounded-full flex items-center justify-center mx-auto text-[#10B981]">
                 <CheckCircle2 className="w-10 h-10" />
               </div>
               <h3 className="text-2xl font-bold font-heading text-white">
@@ -118,7 +117,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({ isOpen, onClose }) => {
               <p className="text-text-muted text-sm max-w-md mx-auto">
                 Thank you, <span className="text-white font-medium">{name}</span>. Mudasir Kamal&apos;s AI engineering team is reviewing your agency footprint.
               </p>
-              <div className="bg-surface-elevated border border-border p-4 rounded-xl text-xs font-mono text-accent space-y-1">
+              <div className="bg-[#051210] border border-[#0F3D35] p-4 rounded-xl text-xs font-mono text-[#10B981] space-y-1">
                 <div>Lead Reference Code:</div>
                 <div className="text-base font-bold text-white tracking-wider">{leadId}</div>
               </div>
@@ -127,7 +126,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({ isOpen, onClose }) => {
               </p>
               <button
                 onClick={resetForm}
-                className="w-full mt-4 py-3 bg-accent text-background font-semibold rounded-xl hover:bg-accent-hover transition-all"
+                className="w-full mt-4 py-3 bg-[#0F3D35] hover:bg-[#165B4F] border border-[#165B4F] text-white font-semibold rounded-xl transition-all"
               >
                 Back to Ecombulls
               </button>
@@ -135,8 +134,8 @@ export const AuditModal: React.FC<AuditModalProps> = ({ isOpen, onClose }) => {
           ) : (
             <div>
               <div className="mb-6 space-y-1">
-                <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-semibold">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-[#0F3D35]/40 border border-[#0F3D35] text-[#10B981] text-xs font-semibold">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse" />
                   Free 1-on-1 Agency Audit
                 </div>
                 <h2 id="modal-title" className="text-2xl font-bold font-heading text-white">
@@ -148,7 +147,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({ isOpen, onClose }) => {
               </div>
 
               {status === "error" && (
-                <div className="mb-4 p-3 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400 text-xs flex items-center gap-2">
+                <div className="mb-4 p-3 bg-red-950/40 border border-red-800/40 rounded-xl text-red-400 text-xs flex items-center gap-2">
                   <AlertCircle className="w-4 h-4 shrink-0" />
                   <span>{errorMessage}</span>
                 </div>
@@ -166,7 +165,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({ isOpen, onClose }) => {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="e.g. Alex Mercer"
-                    className="w-full px-4 py-2.5 bg-surface-elevated border border-border rounded-xl text-white text-sm placeholder:text-text-dim focus:border-accent focus:outline-none transition-colors"
+                    className="w-full px-4 py-2.5 bg-[#051210] border border-[#0F3D35] rounded-xl text-white text-sm placeholder:text-text-dim focus:border-[#165B4F] focus:outline-none transition-colors"
                   />
                 </div>
 
@@ -181,7 +180,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({ isOpen, onClose }) => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="alex@growthagency.com"
-                    className="w-full px-4 py-2.5 bg-surface-elevated border border-border rounded-xl text-white text-sm placeholder:text-text-dim focus:border-accent focus:outline-none transition-colors"
+                    className="w-full px-4 py-2.5 bg-[#051210] border border-[#0F3D35] rounded-xl text-white text-sm placeholder:text-text-dim focus:border-[#165B4F] focus:outline-none transition-colors"
                   />
                 </div>
 
@@ -196,7 +195,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({ isOpen, onClose }) => {
                     value={whatsapp}
                     onChange={(e) => setWhatsapp(e.target.value)}
                     placeholder="+1 (555) 019-2834"
-                    className="w-full px-4 py-2.5 bg-surface-elevated border border-border rounded-xl text-white text-sm placeholder:text-text-dim focus:border-accent focus:outline-none transition-colors"
+                    className="w-full px-4 py-2.5 bg-[#051210] border border-[#0F3D35] rounded-xl text-white text-sm placeholder:text-text-dim focus:border-[#165B4F] focus:outline-none transition-colors"
                   />
                 </div>
 
@@ -208,7 +207,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({ isOpen, onClose }) => {
                     id="audit-platform"
                     value={platform}
                     onChange={(e) => setPlatform(e.target.value)}
-                    className="w-full px-4 py-2.5 bg-surface-elevated border border-border rounded-xl text-white text-sm focus:border-accent focus:outline-none transition-colors"
+                    className="w-full px-4 py-2.5 bg-[#051210] border border-[#0F3D35] rounded-xl text-white text-sm focus:border-[#165B4F] focus:outline-none transition-colors"
                   >
                     <option value="Amazon">Amazon Marketplace</option>
                     <option value="eBay">eBay Motors / Retail</option>
@@ -222,16 +221,16 @@ export const AuditModal: React.FC<AuditModalProps> = ({ isOpen, onClose }) => {
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="w-full mt-2 py-3.5 bg-accent hover:bg-accent-hover text-background font-bold rounded-xl shadow-lg shadow-accent/20 transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+                  className="w-full mt-2 py-3.5 bg-[#0F3D35] hover:bg-[#165B4F] border border-[#165B4F] text-white font-bold rounded-xl shadow-lg shadow-[#0F3D35]/40 transition-all flex items-center justify-center gap-2 disabled:opacity-50"
                 >
                   {status === "loading" ? (
                     <>
-                      <Loader2 className="w-5 h-5 animate-spin" />
+                      <Loader2 className="w-5 h-5 animate-spin text-[#10B981]" />
                       Analyzing Store Blueprint...
                     </>
                   ) : (
                     <>
-                      <Send className="w-4 h-4" />
+                      <Send className="w-4 h-4 text-[#10B981]" />
                       Claim Free Agency Audit
                     </>
                   )}

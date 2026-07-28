@@ -3,19 +3,20 @@
 @tailwind utilities;
 
 :root {
-  --color-background: #070a11;
-  --color-surface: #0f1626;
-  --color-surface-elevated: #162035;
-  --color-surface-hover: #1e2b47;
-  --color-accent: #00f090;
-  --color-accent-hover: #00d07d;
-  --color-accent-glow: rgba(0, 240, 144, 0.15);
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-border-bright: rgba(255, 255, 255, 0.16);
-  --color-border-glow: rgba(0, 240, 144, 0.25);
-  --color-text-primary: #f9fafb;
-  --color-text-muted: #9ca3af;
-  --color-text-dim: #6b7280;
+  --color-background: #000000;
+  --color-surface: #051210;
+  --color-surface-elevated: #091c18;
+  --color-surface-hover: #0e2a25;
+  --color-accent: #0f3d35;
+  --color-accent-light: #165b4f;
+  --color-accent-bright: #10b981;
+  --color-accent-glow: rgba(15, 61, 53, 0.5);
+  --color-border: rgba(15, 61, 53, 0.4);
+  --color-border-bright: rgba(22, 91, 79, 0.7);
+  --color-border-glow: #0f3d35;
+  --color-text-primary: #ffffff;
+  --color-text-muted: #94a3b8;
+  --color-text-dim: #64748b;
 }
 
 * {
@@ -30,8 +31,8 @@ html {
 }
 
 body {
-  background-color: var(--color-background);
-  color: var(--color-text-primary);
+  background-color: #000000;
+  color: #ffffff;
   font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -43,25 +44,25 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #070a11;
+  background: #000000;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e2b47;
+  background: #0f3d35;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #00f090;
+  background: #165b4f;
 }
 
 /* Custom Selection */
 ::selection {
-  background: rgba(0, 240, 144, 0.3);
+  background: rgba(15, 61, 53, 0.6);
   color: #ffffff;
 }
 
 /* Focus Ring Custom Utility */
 *:focus-visible {
-  outline: 2px solid #00f090;
+  outline: 2px solid #0f3d35;
   outline-offset: 2px;
 }
 
@@ -85,17 +86,42 @@ body {
 
 /* Glassmorphism card backdrop */
 .glass-card {
-  background: rgba(15, 22, 38, 0.7);
+  background: rgba(5, 18, 16, 0.75);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(15, 61, 53, 0.5);
 }
 
 .glass-card:hover {
-  border-color: rgba(0, 240, 144, 0.3);
+  border-color: #0f3d35;
+}
+
+/* Section Partition Line Divider */
+.section-partition {
+  position: relative;
+  border-top: 1px solid rgba(15, 61, 53, 0.5);
+  border-bottom: 1px solid rgba(15, 61, 53, 0.5);
+}
+
+.section-partition::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #0f3d35,
+    #165b4f,
+    #0f3d35,
+    transparent
+  );
 }
 
 /* Glowing text effect */
 .text-glow {
-  text-shadow: 0 0 20px rgba(0, 240, 144, 0.4);
+  text-shadow: 0 0 20px rgba(15, 61, 53, 0.6);
 }

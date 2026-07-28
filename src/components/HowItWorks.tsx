@@ -21,7 +21,6 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenAudit }) => {
     if (typeof window === "undefined") return;
 
     const ctx = gsap.context(() => {
-      // Timeline progress line draw animation on scroll
       if (lineRef.current) {
         gsap.fromTo(
           lineRef.current,
@@ -71,11 +70,11 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenAudit }) => {
   ];
 
   return (
-    <section ref={sectionRef} id="how-it-works" className="py-24 bg-surface/30 relative overflow-hidden">
+    <section ref={sectionRef} id="how-it-works" className="py-24 bg-[#040E0C] relative overflow-hidden border-b border-[#0F3D35]/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/30 text-accent text-xs font-semibold">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0F3D35]/40 border border-[#0F3D35] text-[#10B981] text-xs font-semibold">
             <ShieldCheck className="w-3.5 h-3.5" />
             <span>Operational Blueprint</span>
           </div>
@@ -90,10 +89,10 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenAudit }) => {
         {/* Timeline Container */}
         <div className="relative max-w-4xl mx-auto">
           {/* GSAP Animated Vertical Progress Line */}
-          <div className="hidden md:block absolute top-8 bottom-8 left-1/2 -translate-x-1/2 w-0.5 bg-border z-0">
+          <div className="hidden md:block absolute top-8 bottom-8 left-1/2 -translate-x-1/2 w-0.5 bg-[#0F3D35]/40 z-0">
             <div
               ref={lineRef}
-              className="w-full h-full bg-gradient-to-b from-accent via-accent-cyan to-accent-blue origin-top scale-y-0"
+              className="w-full h-full bg-gradient-to-b from-[#10B981] via-[#165B4F] to-[#0F3D35] origin-top scale-y-0"
             />
           </div>
 
@@ -111,12 +110,12 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenAudit }) => {
                 >
                   {/* Step Card Content */}
                   <div className="w-full md:w-1/2">
-                    <div className="bg-surface border border-border p-6 sm:p-8 rounded-3xl shadow-xl hover:border-border-glow transition-all group">
+                    <div className="bg-black border border-[#0F3D35] p-6 sm:p-8 rounded-3xl shadow-xl hover:border-[#165B4F] transition-all group">
                       <div className="flex items-center justify-between mb-4">
-                        <span className="text-xs font-mono font-bold text-accent bg-accent/10 px-2.5 py-1 rounded-lg border border-accent/20">
+                        <span className="text-xs font-mono font-bold text-[#10B981] bg-[#0F3D35]/40 px-2.5 py-1 rounded-lg border border-[#0F3D35]">
                           PHASE {item.step}
                         </span>
-                        <div className="w-10 h-10 rounded-xl bg-surface-elevated border border-border flex items-center justify-center text-accent group-hover:scale-110 transition-transform">
+                        <div className="w-10 h-10 rounded-xl bg-[#051210] border border-[#0F3D35] flex items-center justify-center text-[#10B981] group-hover:scale-110 transition-transform">
                           <Icon className="w-5 h-5" />
                         </div>
                       </div>
@@ -129,10 +128,10 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenAudit }) => {
                         {item.description}
                       </p>
 
-                      <div className="space-y-2 pt-2 border-t border-border/60">
+                      <div className="space-y-2 pt-2 border-t border-[#0F3D35]/60">
                         {item.highlights.map((h, i) => (
-                          <div key={i} className="flex items-center gap-2 text-xs text-text-primary">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-accent shrink-0" />
+                          <div key={i} className="flex items-center gap-2 text-xs text-white">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
                             <span>{h}</span>
                           </div>
                         ))}
@@ -141,11 +140,10 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenAudit }) => {
                   </div>
 
                   {/* Center Node Badge */}
-                  <div className="w-12 h-12 rounded-2xl bg-surface-elevated border-2 border-accent text-accent font-bold font-mono text-sm flex items-center justify-center shrink-0 shadow-lg shadow-accent/20 z-20">
+                  <div className="w-12 h-12 rounded-2xl bg-black border-2 border-[#0F3D35] text-[#10B981] font-bold font-mono text-sm flex items-center justify-center shrink-0 shadow-lg shadow-[#0F3D35]/30 z-20">
                     {item.step}
                   </div>
 
-                  {/* Spacer for 2-column layout */}
                   <div className="hidden md:block w-1/2" />
                 </div>
               );
@@ -157,10 +155,10 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenAudit }) => {
         <div className="mt-16 text-center">
           <button
             onClick={onOpenAudit}
-            className="px-8 py-4 bg-accent hover:bg-accent-hover text-background font-bold rounded-xl shadow-lg shadow-accent/20 transition-all inline-flex items-center gap-2"
+            className="px-8 py-4 bg-[#0F3D35] hover:bg-[#165B4F] border border-[#165B4F] text-white font-bold rounded-xl shadow-lg shadow-[#0F3D35]/40 transition-all inline-flex items-center gap-2"
           >
             <span>Start Phase 01 Audit Now</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 text-[#10B981]" />
           </button>
         </div>
       </div>

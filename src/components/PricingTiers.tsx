@@ -64,11 +64,11 @@ export const PricingTiers: React.FC<PricingTiersProps> = ({ onOpenAudit }) => {
   ];
 
   return (
-    <section id="pricing" className="py-24 bg-background relative overflow-hidden">
+    <section id="pricing" className="py-24 bg-black relative overflow-hidden border-b border-[#0F3D35]/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/30 text-accent text-xs font-semibold">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0F3D35]/40 border border-[#0F3D35] text-[#10B981] text-xs font-semibold">
             <Zap className="w-3.5 h-3.5" />
             <span>Transparent Agency Pricing</span>
           </div>
@@ -86,18 +86,18 @@ export const PricingTiers: React.FC<PricingTiersProps> = ({ onOpenAudit }) => {
             </span>
             <button
               onClick={() => setIsAnnual(!isAnnual)}
-              className="relative w-14 h-8 rounded-full bg-surface-elevated border border-border p-1 transition-colors"
+              className="relative w-14 h-8 rounded-full bg-[#051210] border border-[#0F3D35] p-1 transition-colors"
               aria-label="Toggle Billing Cycle"
             >
               <div
-                className={`w-6 h-6 rounded-full bg-accent transition-transform ${
+                className={`w-6 h-6 rounded-full bg-[#10B981] transition-transform ${
                   isAnnual ? "translate-x-6" : "translate-x-0"
                 }`}
               />
             </button>
             <span className={`text-xs font-medium flex items-center gap-1.5 ${isAnnual ? "text-white font-bold" : "text-text-muted"}`}>
               Annual Billing
-              <span className="px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[10px] font-mono font-bold">
+              <span className="px-2 py-0.5 rounded-full bg-[#0F3D35] border border-[#165B4F] text-[#10B981] text-[10px] font-mono font-bold">
                 Save 20%
               </span>
             </span>
@@ -112,15 +112,15 @@ export const PricingTiers: React.FC<PricingTiersProps> = ({ onOpenAudit }) => {
             return (
               <div
                 key={idx}
-                className={`relative bg-surface rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 ${
+                className={`relative bg-[#051210] rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 ${
                   tier.popular
-                    ? "border-2 border-accent shadow-[0_0_50px_rgba(0,240,144,0.15)] -translate-y-2"
-                    : "border border-border hover:border-border-bright"
+                    ? "border-2 border-[#0F3D35] shadow-[0_0_50px_rgba(15,61,53,0.3)] -translate-y-2"
+                    : "border border-[#0F3D35] hover:border-[#165B4F]"
                 }`}
               >
                 {tier.popular && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-accent text-background font-bold text-xs font-mono uppercase tracking-wider flex items-center gap-1">
-                    <Sparkles className="w-3.5 h-3.5 fill-background" />
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-[#0F3D35] text-white font-bold text-xs font-mono uppercase tracking-wider flex items-center gap-1 border border-[#165B4F]">
+                    <Sparkles className="w-3.5 h-3.5 text-[#10B981]" />
                     {tier.badge}
                   </div>
                 )}
@@ -141,15 +141,15 @@ export const PricingTiers: React.FC<PricingTiersProps> = ({ onOpenAudit }) => {
                       )}
                     </div>
                     {isAnnual && typeof price === "number" && (
-                      <span className="text-[10px] font-mono text-emerald-400">Billed annually (${price * 12}/yr)</span>
+                      <span className="text-[10px] font-mono text-[#10B981]">Billed annually (${price * 12}/yr)</span>
                     )}
                   </div>
 
-                  <div className="space-y-3 pt-6 border-t border-border mb-8">
+                  <div className="space-y-3 pt-6 border-t border-[#0F3D35] mb-8">
                     <div className="text-xs font-mono text-text-muted uppercase tracking-wider">Included Features:</div>
                     {tier.features.map((feat, i) => (
-                      <div key={i} className="flex items-start gap-2.5 text-xs text-text-primary">
-                        <Check className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                      <div key={i} className="flex items-start gap-2.5 text-xs text-white">
+                        <Check className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
                         <span>{feat}</span>
                       </div>
                     ))}
@@ -160,12 +160,12 @@ export const PricingTiers: React.FC<PricingTiersProps> = ({ onOpenAudit }) => {
                   onClick={onOpenAudit}
                   className={`w-full py-3.5 rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 ${
                     tier.popular
-                      ? "bg-accent hover:bg-accent-hover text-background shadow-lg shadow-accent/20"
-                      : "bg-surface-elevated border border-border hover:border-accent text-white"
+                      ? "bg-[#0F3D35] hover:bg-[#165B4F] text-white border border-[#165B4F] shadow-lg shadow-[#0F3D35]/40"
+                      : "bg-black border border-[#0F3D35] hover:border-[#165B4F] text-white"
                   }`}
                 >
                   <span>{tier.ctaText}</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 text-[#10B981]" />
                 </button>
               </div>
             );
@@ -174,7 +174,7 @@ export const PricingTiers: React.FC<PricingTiersProps> = ({ onOpenAudit }) => {
 
         {/* Enterprise Bottom Footnote */}
         <div className="mt-12 text-center text-xs text-text-muted flex items-center justify-center gap-2">
-          <ShieldCheck className="w-4 h-4 text-accent" />
+          <ShieldCheck className="w-4 h-4 text-[#10B981]" />
           <span>All plans backed by Ecombulls 14-day zero-risk implementation trial and 99.8% Uptime SLA.</span>
         </div>
       </div>

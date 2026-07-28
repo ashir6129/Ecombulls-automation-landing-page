@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { ShieldCheck, Lock, Server, Cpu, RefreshCw, Key } from "lucide-react";
+import { ShieldCheck, Lock, Server, Cpu, Key } from "lucide-react";
 
 export const TrustSection: React.FC = () => {
   const trustFeatures = [
@@ -28,11 +28,11 @@ export const TrustSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-surface/20 border-y border-border relative overflow-hidden">
+    <section className="py-20 bg-[#040E0C] border-b border-[#0F3D35]/80 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-4 space-y-4 text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/30 text-accent text-xs font-semibold">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0F3D35]/40 border border-[#0F3D35] text-[#10B981] text-xs font-semibold">
               <ShieldCheck className="w-3.5 h-3.5" />
               <span>Enterprise Compliance</span>
             </div>
@@ -48,8 +48,8 @@ export const TrustSection: React.FC = () => {
             {trustFeatures.map((item, idx) => {
               const Icon = item.icon;
               return (
-                <div key={idx} className="p-5 rounded-2xl bg-surface border border-border space-y-2">
-                  <div className="w-9 h-9 rounded-xl bg-surface-elevated border border-border flex items-center justify-center text-accent">
+                <div key={idx} className="p-5 rounded-2xl bg-black border border-[#0F3D35] space-y-2">
+                  <div className="w-9 h-9 rounded-xl bg-[#051210] border border-[#0F3D35] flex items-center justify-center text-[#10B981]">
                     <Icon className="w-4 h-4" />
                   </div>
                   <h3 className="text-sm font-bold text-white font-heading">{item.title}</h3>

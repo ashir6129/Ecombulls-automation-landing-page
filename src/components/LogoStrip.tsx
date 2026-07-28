@@ -58,19 +58,19 @@ export const LogoStrip: React.FC = () => {
       name: "Shopify Plus",
       logo: (
         <div className="flex items-center gap-2 font-bold text-xl tracking-tight">
-          <svg className="w-6 h-6 fill-current text-emerald-400" viewBox="0 0 24 24">
+          <svg className="w-6 h-6 fill-current text-[#10B981]" viewBox="0 0 24 24">
             <path d="M17.5 3.5L12 1L6.5 3.5L3 18.5L12 23L21 18.5L17.5 3.5ZM12 4.5L15.5 6L12 7.5L8.5 6L12 4.5ZM7.5 8L11 9.5V19.5L5 16.5L7.5 8ZM13 19.5V9.5L16.5 8L19 16.5L13 19.5Z" />
           </svg>
           <span>Shopify</span>
         </div>
       ),
       badge: "GraphQL API",
-      colorClass: "hover:text-emerald-400",
+      colorClass: "hover:text-[#10B981]",
     },
   ];
 
   return (
-    <section className="py-12 border-y border-border bg-surface/40 select-none overflow-hidden">
+    <section className="py-12 border-b border-[#0F3D35]/80 bg-[#051210]/40 select-none overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-8">
         <p className="text-xs font-mono tracking-widest text-text-muted uppercase">
           DEEP NATIVE INTEGRATION ACROSS LEADING MARKETPLACES
@@ -85,7 +85,7 @@ export const LogoStrip: React.FC = () => {
               className={`flex items-center gap-3 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer ${platform.colorClass}`}
             >
               {platform.logo}
-              <span className="px-2 py-0.5 rounded bg-surface-elevated border border-border text-[10px] font-mono text-text-muted">
+              <span className="px-2 py-0.5 rounded bg-black border border-[#0F3D35] text-[10px] font-mono text-text-muted">
                 {platform.badge}
               </span>
             </div>

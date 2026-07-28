@@ -45,11 +45,11 @@ export const FAQAccordion: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-24 bg-background relative overflow-hidden">
+    <section id="faq" className="py-24 bg-black relative overflow-hidden border-b border-[#0F3D35]/80">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/30 text-accent text-xs font-semibold">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0F3D35]/40 border border-[#0F3D35] text-[#10B981] text-xs font-semibold">
             <HelpCircle className="w-3.5 h-3.5" />
             <span>Got Questions?</span>
           </div>
@@ -68,7 +68,7 @@ export const FAQAccordion: React.FC = () => {
             return (
               <div
                 key={index}
-                className="bg-surface border border-border hover:border-border-bright rounded-2xl overflow-hidden transition-colors"
+                className="bg-[#051210] border border-[#0F3D35] hover:border-[#165B4F] rounded-2xl overflow-hidden transition-colors"
               >
                 <button
                   onClick={() => toggleIndex(index)}
@@ -80,8 +80,8 @@ export const FAQAccordion: React.FC = () => {
                     {faq.question}
                   </span>
                   <div
-                    className={`w-8 h-8 rounded-lg bg-surface-elevated border border-border flex items-center justify-center text-accent transition-transform duration-300 shrink-0 ${
-                      isOpen ? "rotate-180 bg-accent text-background" : ""
+                    className={`w-8 h-8 rounded-lg bg-black border border-[#0F3D35] flex items-center justify-center text-[#10B981] transition-transform duration-300 shrink-0 ${
+                      isOpen ? "rotate-180 bg-[#0F3D35] text-white" : ""
                     }`}
                   >
                     <ChevronDown className="w-4 h-4" />
@@ -97,7 +97,7 @@ export const FAQAccordion: React.FC = () => {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                     >
-                      <div className="px-6 pb-6 pt-1 text-sm text-text-muted leading-relaxed border-t border-border/40 mt-1">
+                      <div className="px-6 pb-6 pt-1 text-sm text-text-muted leading-relaxed border-t border-[#0F3D35]/50 mt-1">
                         {faq.answer}
                       </div>
                     </motion.div>

@@ -9,28 +9,29 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--color-background)",
+        background: "#000000",
         surface: {
-          DEFAULT: "var(--color-surface)",
-          elevated: "var(--color-surface-elevated)",
-          hover: "var(--color-surface-hover)",
+          DEFAULT: "#051210",
+          elevated: "#091C18",
+          hover: "#0E2A25",
         },
         accent: {
-          DEFAULT: "var(--color-accent)",
-          hover: "var(--color-accent-hover)",
-          blue: "#3B82F6",
-          cyan: "#06B6D4",
-          glow: "var(--color-accent-glow)",
+          DEFAULT: "#0F3D35",
+          hover: "#165B4F",
+          bright: "#10B981",
+          blue: "#0F3D35",
+          cyan: "#165B4F",
+          glow: "rgba(15, 61, 53, 0.4)",
         },
         border: {
-          DEFAULT: "var(--color-border)",
-          bright: "var(--color-border-bright)",
-          glow: "var(--color-border-glow)",
+          DEFAULT: "rgba(15, 61, 53, 0.4)",
+          bright: "rgba(22, 91, 79, 0.7)",
+          glow: "#0F3D35",
         },
         text: {
-          primary: "var(--color-text-primary)",
-          muted: "var(--color-text-muted)",
-          dim: "var(--color-text-dim)",
+          primary: "#FFFFFF",
+          muted: "#94A3B8",
+          dim: "#64748B",
         },
       },
       fontFamily: {
