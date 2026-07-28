@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { Zap, ArrowRightLeft } from "lucide-react";
+import { AmazonLogo, EBayLogo, WalmartLogo, TikTokShopLogo, ShopifyLogo } from "./PlatformLogos";
 
 export const HeroSyncDiagram: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -38,7 +39,6 @@ export const HeroSyncDiagram: React.FC = () => {
     >
       {/* SVG Diagram Canvas */}
       <svg className="w-full h-full absolute inset-0 z-0" viewBox="0 0 500 500">
-        {/* Solid #0F3D35 Connecting Lines */}
         <line
           x1="250"
           y1="250"
@@ -90,7 +90,6 @@ export const HeroSyncDiagram: React.FC = () => {
           className="data-packet opacity-90"
         />
 
-        {/* Pulse Circle */}
         <circle
           ref={pulseRef1}
           cx="250"
@@ -114,63 +113,53 @@ export const HeroSyncDiagram: React.FC = () => {
         </div>
       </div>
 
-      {/* Satellite Platform Nodes */}
-      <div className="absolute top-[16%] left-[12%] z-10">
+      {/* Satellite Platform Nodes with Official Logos */}
+      {/* 1. Amazon */}
+      <div className="absolute top-[16%] left-[8%] z-10">
         <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-[#0A0A0A] border border-[#0F3D35] shadow-lg">
-          <div className="w-7 h-7 rounded-lg bg-[#0F3D35] flex items-center justify-center text-white font-bold text-xs">
-            amz
-          </div>
-          <div className="text-left">
-            <div className="text-xs font-bold text-white">Amazon</div>
-            <div className="text-[9px] font-mono text-[#0F3D35]">1-Min Sync</div>
+          <AmazonLogo className="h-4 w-auto text-white" />
+          <div className="text-left border-l border-[#0F3D35] pl-2">
+            <div className="text-[9px] font-mono text-white">1-Min Sync</div>
           </div>
         </div>
       </div>
 
-      <div className="absolute top-[16%] right-[12%] z-10">
+      {/* 2. Walmart */}
+      <div className="absolute top-[16%] right-[8%] z-10">
         <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-[#0A0A0A] border border-[#0F3D35] shadow-lg">
-          <div className="w-7 h-7 rounded-lg bg-[#0F3D35] flex items-center justify-center text-white font-bold text-xs">
-            WMT
-          </div>
-          <div className="text-left">
-            <div className="text-xs font-bold text-white">Walmart</div>
-            <div className="text-[9px] font-mono text-[#0F3D35]">Auto Route</div>
+          <WalmartLogo className="h-4 w-auto text-white" />
+          <div className="text-left border-l border-[#0F3D35] pl-2">
+            <div className="text-[9px] font-mono text-white">WFS Auto</div>
           </div>
         </div>
       </div>
 
-      <div className="absolute bottom-[20%] left-[10%] z-10">
+      {/* 3. eBay */}
+      <div className="absolute bottom-[20%] left-[6%] z-10">
         <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-[#0A0A0A] border border-[#0F3D35] shadow-lg">
-          <div className="w-7 h-7 rounded-lg bg-[#0F3D35] flex items-center justify-center text-white font-bold text-xs">
-            eBay
-          </div>
-          <div className="text-left">
-            <div className="text-xs font-bold text-white">eBay</div>
-            <div className="text-[9px] font-mono text-[#0F3D35]">Stock Guard</div>
+          <EBayLogo className="h-4 w-auto" />
+          <div className="text-left border-l border-[#0F3D35] pl-2">
+            <div className="text-[9px] font-mono text-white">Stock Guard</div>
           </div>
         </div>
       </div>
 
-      <div className="absolute bottom-[20%] right-[10%] z-10">
+      {/* 4. TikTok Shop */}
+      <div className="absolute bottom-[20%] right-[6%] z-10">
         <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-[#0A0A0A] border border-[#0F3D35] shadow-lg">
-          <div className="w-7 h-7 rounded-lg bg-[#0F3D35] flex items-center justify-center text-white font-bold text-xs">
-            TT
-          </div>
-          <div className="text-left">
-            <div className="text-xs font-bold text-white">TikTok Shop</div>
-            <div className="text-[9px] font-mono text-[#0F3D35]">Viral Spike</div>
+          <TikTokShopLogo className="h-4 w-auto text-white" />
+          <div className="text-left border-l border-[#0F3D35] pl-2">
+            <div className="text-[9px] font-mono text-white">Live Flash</div>
           </div>
         </div>
       </div>
 
+      {/* 5. Shopify */}
       <div className="absolute bottom-[6%] left-1/2 -translate-x-1/2 z-10">
         <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#0A0A0A] border border-[#0F3D35] shadow-lg">
-          <div className="w-7 h-7 rounded-lg bg-[#0F3D35] flex items-center justify-center text-white font-bold text-xs">
-            SHP
-          </div>
-          <div className="text-left">
-            <div className="text-xs font-bold text-white">Shopify Plus</div>
-            <div className="text-[9px] font-mono text-[#0F3D35]">Master Catalog</div>
+          <ShopifyLogo className="h-4 w-auto text-white" />
+          <div className="text-left border-l border-[#0F3D35] pl-2">
+            <div className="text-[9px] font-mono text-white">Master Catalog</div>
           </div>
         </div>
       </div>

@@ -3,10 +3,12 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, Zap, ArrowUpRight, Cpu, Layers } from "lucide-react";
+import { AmazonLogo, EBayLogo, WalmartLogo, TikTokShopLogo, ShopifyLogo } from "./PlatformLogos";
 
 interface PlatformData {
   id: string;
   name: string;
+  logo: React.ReactNode;
   badge: string;
   subtitle: string;
   syncRate: string;
@@ -19,6 +21,7 @@ const PLATFORMS_DATA: PlatformData[] = [
   {
     id: "amazon",
     name: "Amazon Marketplace",
+    logo: <AmazonLogo className="h-5 w-auto text-white" />,
     badge: "SP-API Enterprise",
     subtitle: "Automated FBA/FBM Inventory, Buy Box Repricing, & Order Dispatch",
     syncRate: "< 60 Seconds",
@@ -39,6 +42,7 @@ const PLATFORMS_DATA: PlatformData[] = [
   {
     id: "ebay",
     name: "eBay Motors & Retail",
+    logo: <EBayLogo className="h-5 w-auto" />,
     badge: "Fulfillment & Catalog API",
     subtitle: "High-Volume Multi-Quantity Listing & Multi-Warehouse Sync",
     syncRate: "Real-Time Hook",
@@ -59,6 +63,7 @@ const PLATFORMS_DATA: PlatformData[] = [
   {
     id: "walmart",
     name: "Walmart Marketplace",
+    logo: <WalmartLogo className="h-5 w-auto text-white" />,
     badge: "Walmart Developer API",
     subtitle: "WFS Fulfillment Integration & Two-Day Shipping Badge Automation",
     syncRate: "< 2 Minutes",
@@ -79,6 +84,7 @@ const PLATFORMS_DATA: PlatformData[] = [
   {
     id: "tiktok",
     name: "TikTok Shop",
+    logo: <TikTokShopLogo className="h-5 w-auto text-white" />,
     badge: "Live Stream Flash-Sync",
     subtitle: "Handling Sudden Viral Traffic Spikes & Creator Affiliate Fulfillment",
     syncRate: "Microsecond Event-Driven",
@@ -99,6 +105,7 @@ const PLATFORMS_DATA: PlatformData[] = [
   {
     id: "shopify",
     name: "Shopify & Shopify Plus",
+    logo: <ShopifyLogo className="h-5 w-auto text-white" />,
     badge: "GraphQL Admin API",
     subtitle: "Master Catalog Distribution & Multi-Location Inventory Engine",
     syncRate: "Instant Webhook Sync",
@@ -167,7 +174,7 @@ export const PlatformTabs: React.FC = () => {
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
                   />
                 )}
-                <span>{tab.name}</span>
+                {tab.logo}
               </button>
             );
           })}
@@ -198,11 +205,16 @@ export const PlatformTabs: React.FC = () => {
                 </span>
               </div>
 
-              <div>
-                <h3 className="text-2xl sm:text-3xl font-bold font-heading text-white mb-2">
-                  {currentPlatform.name}
-                </h3>
-                <p className="text-text-muted text-sm font-medium">{currentPlatform.subtitle}</p>
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-[#0A0A0A] border border-[#0F3D35] rounded-xl">
+                  {currentPlatform.logo}
+                </div>
+                <div>
+                  <h3 className="text-2xl sm:text-3xl font-bold font-heading text-white">
+                    {currentPlatform.name}
+                  </h3>
+                  <p className="text-text-muted text-xs sm:text-sm font-medium">{currentPlatform.subtitle}</p>
+                </div>
               </div>
 
               <p className="text-text-muted text-sm leading-relaxed">{currentPlatform.description}</p>

@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { ArrowRight, ShieldCheck, Sparkles, CheckCircle2 } from "lucide-react";
 import { MOTION_TOKENS, fadeInVariants } from "@/lib/motion";
+import { AmazonLogo, EBayLogo, WalmartLogo, TikTokShopLogo, ShopifyLogo } from "./PlatformLogos";
 
 const DynamicHeroSyncDiagram = dynamic(
   () => import("./HeroSyncDiagram"),
@@ -48,7 +49,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAudit }) => {
               </div>
             </motion.div>
 
-            {/* Main Headline - Solid White Text */}
+            {/* Main Headline */}
             <motion.h1
               variants={fadeInVariants}
               custom={1}
@@ -66,14 +67,37 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAudit }) => {
               custom={2}
               className="text-base sm:text-lg text-text-muted max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed"
             >
-              Ecombulls automates inventory syncing, order routing, repricing engines, and product catalog synchronization across <strong className="text-white">Amazon, eBay, Walmart, TikTok Shop, and Shopify</strong> with zero human latency.
+              Ecombulls automates inventory syncing, order routing, repricing engines, and product catalog synchronization across all leading marketplaces with zero human latency.
             </motion.p>
+
+            {/* Brand Logo Row */}
+            <motion.div
+              variants={fadeInVariants}
+              custom={3}
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-5 pt-1"
+            >
+              <div className="p-2 rounded-xl bg-[#121212] border border-[#0F3D35]">
+                <AmazonLogo className="h-4 w-auto text-white" />
+              </div>
+              <div className="p-2 rounded-xl bg-[#121212] border border-[#0F3D35]">
+                <EBayLogo className="h-4 w-auto" />
+              </div>
+              <div className="p-2 rounded-xl bg-[#121212] border border-[#0F3D35]">
+                <WalmartLogo className="h-4 w-auto text-white" />
+              </div>
+              <div className="p-2 rounded-xl bg-[#121212] border border-[#0F3D35]">
+                <TikTokShopLogo className="h-4 w-auto text-white" />
+              </div>
+              <div className="p-2 rounded-xl bg-[#121212] border border-[#0F3D35]">
+                <ShopifyLogo className="h-4 w-auto text-white" />
+              </div>
+            </motion.div>
 
             {/* Key Value Proposition Badges */}
             <motion.div
               variants={fadeInVariants}
-              custom={3}
-              className="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-medium text-text-muted pt-2"
+              custom={4}
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-medium text-text-muted pt-1"
             >
               <div className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-4 h-4 text-[#0F3D35]" />
@@ -92,8 +116,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAudit }) => {
             {/* Call to Action Buttons */}
             <motion.div
               variants={fadeInVariants}
-              custom={4}
-              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4"
+              custom={5}
+              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2"
             >
               <button
                 onClick={onOpenAudit}
@@ -114,8 +138,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAudit }) => {
             {/* Trust Footer */}
             <motion.div
               variants={fadeInVariants}
-              custom={5}
-              className="pt-4 text-xs text-text-dim flex items-center justify-center lg:justify-start gap-2"
+              custom={6}
+              className="pt-2 text-xs text-text-dim flex items-center justify-center lg:justify-start gap-2"
             >
               <ShieldCheck className="w-4 h-4 text-[#0F3D35]" />
               <span>Trusted by 45+ E-commerce Growth Agencies worldwide</span>
