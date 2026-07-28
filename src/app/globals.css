@@ -3,18 +3,19 @@
 @tailwind utilities;
 
 :root {
-  --color-background: #0a0a0a;
-  --color-surface: #121212;
-  --color-surface-elevated: #171717;
-  --color-surface-hover: #1f1f1f;
-  --color-accent: #0f3d35;
-  --color-accent-hover: #145449;
-  --color-accent-bright: #0f3d35;
-  --color-border: #0f3d35;
-  --color-border-bright: #145449;
-  --color-text-primary: #ffffff;
-  --color-text-muted: #a1a1aa;
-  --color-text-dim: #71717a;
+  --color-cream: #fdfbd4;
+  --color-sage: #d9d7b6;
+  --color-taupe: #878672;
+  --color-olive: #545333;
+  --color-olive-dark: #373621;
+  --color-background: #0d0e08;
+  --color-surface: #16170e;
+  --color-surface-elevated: #202215;
+  --color-border: #545333;
+  --color-border-bright: #878672;
+  --color-text-primary: #fdfbd4;
+  --color-text-muted: #d9d7b6;
+  --color-text-dim: #878672;
 }
 
 * {
@@ -29,8 +30,8 @@ html {
 }
 
 body {
-  background-color: #0a0a0a;
-  color: #ffffff;
+  background-color: #0d0e08;
+  color: #fdfbd4;
   font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -42,25 +43,25 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a0a0a;
+  background: #0d0e08;
 }
 ::-webkit-scrollbar-thumb {
-  background: #0f3d35;
+  background: #545333;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #145449;
+  background: #878672;
 }
 
 /* Custom Selection */
 ::selection {
-  background: #0f3d35;
-  color: #ffffff;
+  background: #545333;
+  color: #fdfbd4;
 }
 
 /* Focus Ring Custom Utility */
 *:focus-visible {
-  outline: 2px solid #0f3d35;
+  outline: 2px solid #545333;
   outline-offset: 2px;
 }
 
@@ -84,6 +85,6 @@ body {
 
 /* Section Partition Line Divider */
 .section-partition {
-  border-top: 1px solid #0f3d35;
-  border-bottom: 1px solid #0f3d35;
+  border-top: 1px solid #545333;
+  border-bottom: 1px solid #545333;
 }

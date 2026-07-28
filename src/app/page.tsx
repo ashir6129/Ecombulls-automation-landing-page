@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import dynamic from "next/dynamic";
-import { Navbar } from "@/components/Navbar";
 import { Marquee } from "@/components/Marquee";
 import { Hero } from "@/components/Hero";
 import { LogoStrip } from "@/components/LogoStrip";
@@ -18,11 +17,10 @@ import { FinalCTA } from "@/components/FinalCTA";
 import { Footer } from "@/components/Footer";
 import { AuditModal } from "@/components/AuditModal";
 
-// Lazy-load heavy Testimonials component via next/dynamic per performance spec
 const DynamicTestimonials = dynamic(() => import("@/components/Testimonials"), {
   ssr: false,
   loading: () => (
-    <div className="py-20 max-w-4xl mx-auto rounded-3xl bg-surface/50 border border-border animate-pulse flex items-center justify-center text-text-muted text-xs font-mono">
+    <div className="py-20 max-w-4xl mx-auto rounded-3xl bg-[#16170E] border border-[#545333] animate-pulse flex items-center justify-center text-[#D9D7B6] text-xs font-mono">
       Loading Partner Verification Stories...
     </div>
   ),
@@ -35,12 +33,11 @@ export default function Home() {
   const handleCloseAuditModal = () => setIsAuditModalOpen(false);
 
   return (
-    <main className="min-h-screen bg-background text-text-primary selection:bg-accent/30 selection:text-white relative">
-      {/* Top Announcement Ticker */}
-      <Marquee />
-
-      {/* Navigation Header */}
-      <Navbar onOpenAudit={handleOpenAuditModal} />
+    <main className="min-h-screen bg-[#0D0E08] text-[#FDFBD4] selection:bg-[#545333] selection:text-[#FDFBD4] relative">
+      {/* Top Announcement Scrolling Ticker Line ONLY (No Navbar) */}
+      <div className="sticky top-0 z-50">
+        <Marquee onOpenAudit={handleOpenAuditModal} />
+      </div>
 
       {/* Hero Section */}
       <Hero onOpenAudit={handleOpenAuditModal} />

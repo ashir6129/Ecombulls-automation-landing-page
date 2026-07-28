@@ -60,46 +60,46 @@ export const Testimonials: React.FC = () => {
   const current = TESTIMONIALS[currentIndex];
 
   return (
-    <section id="results" className="py-24 bg-[#0A0A0A] relative overflow-hidden border-b border-[#0F3D35]">
+    <section id="results" className="py-24 bg-[#0D0E08] relative overflow-hidden border-b border-[#545333]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#121212] border border-[#0F3D35] text-white text-xs font-semibold">
-            <Quote className="w-3.5 h-3.5 text-[#0F3D35]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#16170E] border border-[#545333] text-[#FDFBD4] text-xs font-semibold">
+            <Quote className="w-3.5 h-3.5 text-[#D9D7B6]" />
             <span>Agency Partner Success Stories</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#FDFBD4] tracking-tight">
             Validated Results from High-Growth Agency Leaders
           </h2>
-          <p className="text-text-muted text-base">
+          <p className="text-[#D9D7B6] text-base">
             See how top e-commerce agencies leverage Mudasir Kamal&apos;s AI system to unlock scale and zero-error fulfillment.
           </p>
         </div>
 
         {/* Carousel Container */}
-        <div className="max-w-4xl mx-auto bg-[#121212] border border-[#0F3D35] rounded-3xl p-8 sm:p-12 shadow-2xl relative">
+        <div className="max-w-4xl mx-auto bg-[#16170E] border border-[#545333] rounded-3xl p-8 sm:p-12 shadow-2xl relative">
           <div className="flex items-center justify-between mb-8">
-            <div className="flex items-center gap-1 text-white">
+            <div className="flex items-center gap-1 text-[#FDFBD4]">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-[#0F3D35] text-[#0F3D35]" />
+                <Star key={i} className="w-5 h-5 fill-[#545333] text-[#FDFBD4]" />
               ))}
-              <span className="text-xs font-bold text-white ml-2 font-mono">5.0 Verified Partner Rating</span>
+              <span className="text-xs font-bold text-[#FDFBD4] ml-2 font-mono">5.0 Verified Partner Rating</span>
             </div>
 
-            <div className="px-3 py-1 rounded-full bg-[#0F3D35] border border-[#145449] text-white font-mono text-xs font-bold">
+            <div className="px-3 py-1 rounded-full bg-[#545333] border border-[#878672] text-[#FDFBD4] font-mono text-xs font-bold">
               {current.metric}
             </div>
           </div>
 
-          <p className="text-lg sm:text-xl text-white font-medium leading-relaxed italic mb-8">
+          <p className="text-lg sm:text-xl text-[#FDFBD4] font-medium leading-relaxed italic mb-8">
             &ldquo;{current.quote}&rdquo;
           </p>
 
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-6 border-t border-[#0F3D35]">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-6 border-t border-[#545333]">
             <div>
-              <div className="text-base font-bold font-heading text-white">{current.name}</div>
-              <div className="text-xs text-text-muted">
-                {current.role} at <span className="text-white font-medium">{current.agency}</span>
+              <div className="text-base font-bold font-heading text-[#FDFBD4]">{current.name}</div>
+              <div className="text-xs text-[#D9D7B6]">
+                {current.role} at <span className="text-[#FDFBD4] font-medium">{current.agency}</span>
               </div>
             </div>
 
@@ -108,7 +108,7 @@ export const Testimonials: React.FC = () => {
                 {current.platforms.map((p, i) => (
                   <span
                     key={i}
-                    className="px-2.5 py-1 rounded bg-[#0A0A0A] border border-[#0F3D35] text-[10px] font-mono text-text-muted"
+                    className="px-2.5 py-1 rounded bg-[#0D0E08] border border-[#545333] text-[10px] font-mono text-[#D9D7B6]"
                   >
                     {p}
                   </span>
@@ -119,17 +119,17 @@ export const Testimonials: React.FC = () => {
               <div className="flex items-center gap-2">
                 <button
                   onClick={handlePrev}
-                  className="p-2.5 rounded-xl bg-[#0A0A0A] border border-[#0F3D35] hover:border-[#145449] text-text-muted hover:text-white transition-colors"
+                  className="p-2.5 rounded-xl bg-[#0D0E08] border border-[#545333] hover:border-[#878672] text-[#D9D7B6] hover:text-[#FDFBD4] transition-colors"
                   aria-label="Previous Testimonial"
                 >
-                  <ChevronLeft className="w-5 h-5 text-white" />
+                  <ChevronLeft className="w-5 h-5 text-[#FDFBD4]" />
                 </button>
                 <button
                   onClick={handleNext}
-                  className="p-2.5 rounded-xl bg-[#0A0A0A] border border-[#0F3D35] hover:border-[#145449] text-text-muted hover:text-white transition-colors"
+                  className="p-2.5 rounded-xl bg-[#0D0E08] border border-[#545333] hover:border-[#878672] text-[#D9D7B6] hover:text-[#FDFBD4] transition-colors"
                   aria-label="Next Testimonial"
                 >
-                  <ChevronRight className="w-5 h-5 text-white" />
+                  <ChevronRight className="w-5 h-5 text-[#FDFBD4]" />
                 </button>
               </div>
             </div>
