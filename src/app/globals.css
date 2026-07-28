@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-background: #070a11;
+  --color-surface: #0f1626;
+  --color-surface-elevated: #162035;
+  --color-surface-hover: #1e2b47;
+  --color-accent: #00f090;
+  --color-accent-hover: #00d07d;
+  --color-accent-glow: rgba(0, 240, 144, 0.15);
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-bright: rgba(255, 255, 255, 0.16);
+  --color-border-glow: rgba(0, 240, 144, 0.25);
+  --color-text-primary: #f9fafb;
+  --color-text-muted: #9ca3af;
+  --color-text-dim: #6b7280;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #070a11;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e2b47;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00f090;
+}
+
+/* Custom Selection */
+::selection {
+  background: rgba(0, 240, 144, 0.3);
+  color: #ffffff;
+}
+
+/* Focus Ring Custom Utility */
+*:focus-visible {
+  outline: 2px solid #00f090;
+  outline-offset: 2px;
+}
+
+/* Gradient Mask Utilities for Marquees */
+.marquee-mask {
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+/* Glassmorphism card backdrop */
+.glass-card {
+  background: rgba(15, 22, 38, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card:hover {
+  border-color: rgba(0, 240, 144, 0.3);
+}
+
+/* Glowing text effect */
+.text-glow {
+  text-shadow: 0 0 20px rgba(0, 240, 144, 0.4);
+}
