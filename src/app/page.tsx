@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import dynamic from "next/dynamic";
-import { Navbar } from "@/components/Navbar";
 import { Marquee } from "@/components/Marquee";
 import { Hero } from "@/components/Hero";
 import { LogoStrip } from "@/components/LogoStrip";
@@ -38,15 +37,12 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-[#FAF8F5] text-[#1C1917] selection:bg-[#C84B31] selection:text-white relative">
-      {/* Header Navbar */}
-      <Navbar onOpenAudit={handleOpenAuditModal} />
-
-      {/* Top Announcement Ticker */}
-      <div className="pt-20">
+      {/* Top Announcement Ticker Bar in Theme Colors (Replacing Navbar) */}
+      <div className="sticky top-0 z-50">
         <Marquee onOpenAudit={handleOpenAuditModal} />
       </div>
 
-      {/* Hero Section with Designer Typography */}
+      {/* Hero Section with Interactive Demo Video Player */}
       <Hero onOpenAudit={handleOpenAuditModal} />
 
       {/* High-Contrast Dark Stats Banner */}
@@ -98,4 +94,4 @@ export default function Home() {
       <AuditModal isOpen={isAuditModalOpen} onClose={handleCloseAuditModal} />
     </main>
   );
-};
+}

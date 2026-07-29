@@ -1,9 +1,8 @@
 "use client";
 
-import React from "react";
-import Image from "next/image";
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, ShieldCheck, Zap, Sparkles } from "lucide-react";
+import { ArrowRight, ShieldCheck, Zap, Sparkles, Play, Pause, Volume2, VolumeX } from "lucide-react";
 import { MOTION_TOKENS, fadeInVariants } from "@/lib/motion";
 import { AmazonLogo, EBayLogo, WalmartLogo, TikTokShopLogo, ShopifyLogo } from "./PlatformLogos";
 
@@ -12,8 +11,29 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ onOpenAudit }) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  const togglePlay = () => {
+    if (!videoRef.current) return;
+    if (isPlaying) {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      videoRef.current.play();
+      setIsPlaying(true);
+    }
+  };
+
+  const toggleMute = () => {
+    if (!videoRef.current) return;
+    videoRef.current.muted = !isMuted;
+    setIsMuted(!isMuted);
+  };
+
   return (
-    <section className="relative pt-16 pb-24 md:pt-20 md:pb-28 bg-[#FAF8F5] overflow-hidden border-b border-[#E7E5E4]">
+    <section className="relative pt-12 pb-24 md:pt-16 md:pb-28 bg-[#FAF8F5] overflow-hidden border-b border-[#E7E5E4]">
       {/* Ambient Background Radial Glow Spot */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-[#C84B31]/15 via-[#F97316]/10 to-transparent rounded-full blur-3xl pointer-events-none -z-0" />
 
@@ -112,32 +132,72 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAudit }) => {
             </motion.div>
           </motion.div>
 
-          {/* Right Column: Hero Graphic */}
+          {/* Right Column: Hero Interactive Video Container (Matching Screenshot Style) */}
           <div className="lg:col-span-5 relative">
-            <div className="relative w-full aspect-[4/5] max-w-[480px] mx-auto rounded-3xl overflow-hidden shadow-2xl border-4 border-white glow-card">
-              <Image
-                src="/images/hero-agency.jpg"
-                alt="Ecombulls AI Engineering Team"
-                fill
-                sizes="(max-width: 1024px) 100vw, 480px"
-                className="object-cover"
-                priority
+            {/* Top Curved Announcement Badge */}
+            <div className="text-center mb-3">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-[#C84B31]/10 border border-[#C84B31]/30 text-[#C84B31] font-mono font-extrabold text-[11px] uppercase tracking-wider shadow-2xs">
+                WATCH THIS VIDEO TO SEE HOW ECOMBULLS AUTOMATES YOUR AGENCY
+              </span>
+            </div>
+
+            <div className="relative w-full aspect-[4/3] sm:aspect-[4/5] max-w-[480px] mx-auto rounded-3xl overflow-hidden shadow-2xl border-4 border-white glow-card bg-[#1C1917]">
+              <video
+                ref={videoRef}
+                src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
+                poster="/images/hero-agency.jpg"
+                playsInline
+                className="w-full h-full object-cover"
+                onEnded={() => setIsPlaying(false)}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1C1917]/85 via-transparent to-transparent" />
-              
-              {/* Floating SLA Badge */}
-              <div className="absolute top-5 left-5 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-[#E7E5E4] shadow-md flex items-center gap-2 text-xs font-mono font-bold text-[#1C1917]">
+
+              {/* Video Overlay Tint when Paused */}
+              {!isPlaying && (
+                <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] transition-opacity duration-300 flex items-center justify-center" />
+              )}
+
+              {/* Center Play / Pause Trigger Button */}
+              <button
+                onClick={togglePlay}
+                aria-label={isPlaying ? "Pause video" : "Play video"}
+                className="absolute inset-0 m-auto w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#C84B31] text-white flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all z-20 group"
+              >
+                {isPlaying ? (
+                  <Pause className="w-8 h-8 sm:w-9 sm:h-9 text-white" />
+                ) : (
+                  <Play className="w-8 h-8 sm:w-9 sm:h-9 text-white translate-x-0.5" />
+                )}
+                {!isPlaying && (
+                  <span className="absolute inset-0 rounded-full bg-[#C84B31] animate-ping opacity-40 -z-10" />
+                )}
+              </button>
+
+              {/* Top SLA Badge Overlay */}
+              <div className="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-black/70 backdrop-blur-md border border-white/20 shadow-md flex items-center gap-2 text-xs font-mono font-bold text-white z-10">
                 <Zap className="w-3.5 h-3.5 text-[#C84B31]" />
                 <span>99.98% SLA Guaranteed</span>
               </div>
 
+              {/* Bottom Audio Toggle Button */}
+              <button
+                onClick={toggleMute}
+                aria-label={isMuted ? "Unmute audio" : "Mute audio"}
+                className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-white flex items-center justify-center hover:bg-black transition-colors z-20 shadow-md"
+              >
+                {isMuted ? (
+                  <VolumeX className="w-4 h-4 text-rose-400" />
+                ) : (
+                  <Volume2 className="w-4 h-4 text-emerald-400" />
+                )}
+              </button>
+
               {/* Bottom Details Card */}
-              <div className="absolute bottom-6 left-6 right-6 p-5 rounded-2xl bg-white/95 backdrop-blur-md border border-[#E7E5E4] shadow-xl">
+              <div className="absolute bottom-5 left-5 right-5 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-[#E7E5E4] shadow-xl z-10">
                 <div className="flex items-center gap-2 text-xs font-mono text-[#C84B31] font-bold">
                   <ShieldCheck className="w-4 h-4 text-[#C84B31]" />
                   <span>100% Client Code Repository &amp; Server Ownership</span>
                 </div>
-                <div className="text-base font-bold text-[#1C1917] mt-1.5 font-display leading-tight">
+                <div className="text-sm sm:text-base font-bold text-[#1C1917] mt-1 font-display leading-tight">
                   High-Loaded Systems, Custom Logistics TMS &amp; AI Agents
                 </div>
               </div>
