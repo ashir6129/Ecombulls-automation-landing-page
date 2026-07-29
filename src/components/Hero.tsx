@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, ShieldCheck, Zap, Sparkles, Play, Pause, Volume2, VolumeX, RotateCcw, Settings } from "lucide-react";
+import { ArrowRight, ShieldCheck, Zap, Sparkles, Play, Pause, Volume2, VolumeX, RotateCcw, Settings, Maximize, Minimize } from "lucide-react";
 import { MOTION_TOKENS, fadeInVariants } from "@/lib/motion";
 import { AmazonLogo, EBayLogo, WalmartLogo, TikTokShopLogo, ShopifyLogo } from "./PlatformLogos";
 
@@ -13,7 +13,9 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({ onOpenAudit }) => {
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
+  const [isFullscreen, setIsFullscreen] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -26,6 +28,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAudit }) => {
         setIsPlaying(false);
       });
     }
+
+    const handleFSChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+    document.addEventListener("fullscreenchange", handleFSChange);
+    return () => document.removeEventListener("fullscreenchange", handleFSChange);
   }, []);
 
   const togglePlay = () => {
@@ -43,6 +51,25 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAudit }) => {
     if (!videoRef.current) return;
     videoRef.current.muted = !isMuted;
     setIsMuted(!isMuted);
+  };
+
+  const toggleFullscreen = () => {
+    const target = containerRef.current || videoRef.current;
+    if (!target) return;
+
+    if (!document.fullscreenElement) {
+      if (target.requestFullscreen) {
+        target.requestFullscreen().catch(() => {
+          if (videoRef.current?.requestFullscreen) videoRef.current.requestFullscreen();
+        });
+      } else if ((target as any).webkitRequestFullscreen) {
+        (target as any).webkitRequestFullscreen();
+      }
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen().catch(() => {});
+      }
+    }
   };
 
   const formatTime = (seconds: number) => {
@@ -194,9 +221,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAudit }) => {
             </div>
 
             {/* Video Container Frame */}
-            <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-4 border-[#1C1917] bg-[#1C1917] glow-card">
+            <div ref={containerRef} className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-4 border-[#1C1917] bg-[#1C1917] glow-card">
               {/* Top Banner Header Bar across the video */}
-              <div className="bg-[#FAF2EE] text-[#C84B31] px-4 py-2.5 text-center font-extrabold text-xs sm:text-sm uppercase tracking-wider border-b border-[#F5E1D8]">
+              <div className="bg-[#FAF2EE]/70 backdrop-blur-md text-[#C84B31] px-4 py-2.5 text-center font-extrabold text-xs sm:text-sm uppercase tracking-wider border-b border-[#F5E1D8]/60 relative z-20">
                 WATCH THIS VIDEO TO SEE HOW ECOMBULLS AUTOMATES YOUR AGENCY
               </div>
 
@@ -223,7 +250,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAudit }) => {
                   <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px] z-10 flex items-center justify-center pointer-events-none" />
                 )}
 
-                {/* CENTER OVERLAY BOX: "Your Video Is Playing / Click To Unmute" (Theme Coral/Terracotta #C84B31) */}
+                {/* CENTER OVERLAY BOX: "Your Video Is Playing / Click To Unmute" (Translucent Glassmorphism) */}
                 {isMuted && (
                   <button
                     onClick={(e) => {
@@ -231,15 +258,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAudit }) => {
                       toggleMute();
                     }}
                     aria-label="Click to unmute video"
-                    className="absolute inset-0 m-auto w-[82%] sm:w-[68%] max-w-[340px] h-[62%] max-h-[195px] bg-[#C84B31]/90 hover:bg-[#B03D25] backdrop-blur-md border border-white/30 rounded-3xl shadow-2xl flex flex-col items-center justify-center p-4 sm:p-6 transition-all transform hover:scale-[1.03] active:scale-[0.97] z-30 cursor-pointer group"
+                    className="absolute inset-0 m-auto w-[82%] sm:w-[68%] max-w-[340px] h-[62%] max-h-[195px] bg-[#C84B31]/45 hover:bg-[#C84B31]/60 backdrop-blur-lg border border-white/40 rounded-3xl shadow-2xl flex flex-col items-center justify-center p-4 sm:p-6 transition-all transform hover:scale-[1.03] active:scale-[0.97] z-30 cursor-pointer group"
                   >
-                    <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                    <div className="w-12 h-12 rounded-full bg-white/25 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform shadow-inner">
                       <Volume2 className="w-7 h-7 text-white animate-pulse" />
                     </div>
-                    <span className="text-xl sm:text-2xl font-extrabold text-white font-display tracking-tight text-center leading-snug">
+                    <span className="text-xl sm:text-2xl font-extrabold text-white font-display tracking-tight text-center leading-snug drop-shadow-sm">
                       Your Video Is Playing
                     </span>
-                    <span className="text-sm sm:text-base font-bold text-white/95 mt-1 text-center">
+                    <span className="text-sm sm:text-base font-bold text-white/95 mt-1 text-center drop-shadow-sm">
                       Click To Unmute
                     </span>
                   </button>
@@ -304,6 +331,18 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAudit }) => {
 
                     {/* Right Controls */}
                     <div className="flex items-center gap-2">
+                      <button
+                        onClick={toggleFullscreen}
+                        className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md transition-colors"
+                        aria-label={isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
+                        title={isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
+                      >
+                        {isFullscreen ? (
+                          <Minimize className="w-4 h-4 text-white" />
+                        ) : (
+                          <Maximize className="w-4 h-4 text-white" />
+                        )}
+                      </button>
                       <button
                         onClick={toggleMute}
                         className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md transition-colors"
