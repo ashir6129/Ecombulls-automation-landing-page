@@ -7,6 +7,8 @@ import { Marquee } from "@/components/Marquee";
 import { Hero } from "@/components/Hero";
 import { LogoStrip } from "@/components/LogoStrip";
 import { PlatformTabs } from "@/components/PlatformTabs";
+import { CaseStudiesSection } from "@/components/CaseStudiesSection";
+import { WhyUsSection } from "@/components/WhyUsSection";
 import { HowItWorks } from "@/components/HowItWorks";
 import { FounderSection } from "@/components/FounderSection";
 import { StatsBar } from "@/components/StatsBar";
@@ -43,17 +45,23 @@ export default function Home() {
         <Marquee onOpenAudit={handleOpenAuditModal} />
       </div>
 
-      {/* Hero Section (Matching Reference Screenshot Layout) */}
+      {/* Hero Section with Designer Typography */}
       <Hero onOpenAudit={handleOpenAuditModal} />
 
-      {/* High-Contrast Dark Stats Banner (Matching Reference Screenshot) */}
+      {/* High-Contrast Dark Stats Banner */}
       <StatsBar />
 
-      {/* Platform Logo Strip Marquee */}
+      {/* Technology & Integrations Marquee Strip */}
       <LogoStrip />
 
-      {/* Interactive Platform Services Cards Grid */}
+      {/* Core Engineering Services Cards Showcase */}
       <PlatformTabs />
+
+      {/* Proven Engineering Case Studies Portfolio */}
+      <CaseStudiesSection />
+
+      {/* The Ecombulls 5-Pillar Advantage Matrix */}
+      <WhyUsSection />
 
       {/* 3-Step Process Timeline */}
       <HowItWorks onOpenAudit={handleOpenAuditModal} />
@@ -64,10 +72,10 @@ export default function Home() {
       {/* Lazy-Loaded Testimonials Carousel */}
       <DynamicTestimonials />
 
-      {/* Manual Agency vs Ecombulls AI System Comparison */}
+      {/* Traditional Development vs Ecombulls AI System Comparison */}
       <ComparisonSection />
 
-      {/* Pricing Tiers & Billing Toggle */}
+      {/* Pricing Support Plans & Billing Toggle */}
       <PricingTiers onOpenAudit={handleOpenAuditModal} />
 
       {/* Security & Uptime Trust Section */}
@@ -82,7 +90,7 @@ export default function Home() {
       {/* Site Footer */}
       <Footer />
 
-      {/* Lead Capture Form Modal */}
+      {/* Lead & Project Discussion Form Modal */}
       <AuditModal isOpen={isAuditModalOpen} onClose={handleCloseAuditModal} />
     </main>
   );

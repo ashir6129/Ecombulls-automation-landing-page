@@ -50,23 +50,23 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAudit }) => {
           </Link>
 
           {/* Navigation Links */}
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-[#57534E]">
-            <a href="#" className="text-[#1C1917] font-bold hover:text-[#C84B31] transition-colors">
-              Home
+          <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-[#57534E]">
+            <a href="#services" className="hover:text-[#C84B31] transition-colors font-semibold">
+              Services
             </a>
-            <a href="#platforms" className="hover:text-[#C84B31] transition-colors">
-              Platforms
+            <a href="#case-studies" className="hover:text-[#C84B31] transition-colors font-semibold">
+              Case Studies
             </a>
-            <a href="#how-it-works" className="hover:text-[#C84B31] transition-colors">
-              Blueprint
+            <a href="#why-us" className="hover:text-[#C84B31] transition-colors font-semibold">
+              Why Us
             </a>
-            <a href="#founder" className="hover:text-[#C84B31] transition-colors">
-              Founder
+            <a href="#pricing" className="hover:text-[#C84B31] transition-colors font-semibold">
+              Support Plans
             </a>
-            <a href="#pricing" className="hover:text-[#C84B31] transition-colors">
-              Pricing
+            <a href="#testimonials" className="hover:text-[#C84B31] transition-colors font-semibold">
+              Reviews
             </a>
-            <a href="#faq" className="hover:text-[#C84B31] transition-colors">
+            <a href="#faq" className="hover:text-[#C84B31] transition-colors font-semibold">
               FAQ
             </a>
           </nav>
@@ -75,15 +75,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAudit }) => {
           <div className="hidden md:flex items-center gap-4">
             <button
               onClick={onOpenAudit}
-              className="text-xs font-bold text-[#57534E] hover:text-[#1C1917] transition-colors px-3 py-2"
+              className="px-5 py-2.5 rounded-xl bg-[#C84B31] hover:bg-[#B03D25] text-white font-bold text-xs shadow-md hover:shadow-lg transition-all flex items-center gap-2"
             >
-              Sign In
-            </button>
-            <button
-              onClick={onOpenAudit}
-              className="px-6 py-2.5 rounded-xl bg-[#C84B31] hover:bg-[#B03D25] text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center gap-2"
-            >
-              <span>Book Audit</span>
+              <span>Discuss Project</span>
               <ArrowRight className="w-4 h-4 text-white" />
             </button>
           </div>
@@ -103,24 +97,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAudit }) => {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-[#FAF8F5] border-b border-[#E7E5E4] px-4 pt-4 pb-6 space-y-4 shadow-lg">
           <nav className="flex flex-col gap-3 text-base font-medium text-[#1C1917]">
-            <a
-              href="#"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="py-1 font-bold text-[#C84B31]"
-            >
-              Home
+            <a href="#services" onClick={() => setIsMobileMenuOpen(false)} className="py-1">
+              Services
             </a>
-            <a href="#platforms" onClick={() => setIsMobileMenuOpen(false)} className="py-1">
-              Platforms
+            <a href="#case-studies" onClick={() => setIsMobileMenuOpen(false)} className="py-1">
+              Case Studies
             </a>
-            <a href="#how-it-works" onClick={() => setIsMobileMenuOpen(false)} className="py-1">
-              Blueprint
-            </a>
-            <a href="#founder" onClick={() => setIsMobileMenuOpen(false)} className="py-1">
-              Founder
+            <a href="#why-us" onClick={() => setIsMobileMenuOpen(false)} className="py-1">
+              Why Choose Us
             </a>
             <a href="#pricing" onClick={() => setIsMobileMenuOpen(false)} className="py-1">
-              Pricing
+              Support Plans
+            </a>
+            <a href="#testimonials" onClick={() => setIsMobileMenuOpen(false)} className="py-1">
+              Client Reviews
             </a>
             <a href="#faq" onClick={() => setIsMobileMenuOpen(false)} className="py-1">
               FAQ
@@ -133,7 +123,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAudit }) => {
             }}
             className="w-full py-3 rounded-xl bg-[#C84B31] text-white font-bold text-sm shadow-md flex items-center justify-center gap-2"
           >
-            <span>Book Free Audit</span>
+            <span>Let&apos;s Discuss Your Project</span>
             <ArrowRight className="w-4 h-4 text-white" />
           </button>
         </div>

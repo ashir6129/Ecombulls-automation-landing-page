@@ -134,15 +134,15 @@ export const AuditModal: React.FC<AuditModalProps> = ({ isOpen, onClose }) => {
           ) : (
             <div>
               <div className="mb-6 space-y-1">
-                <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-[#C84B31]/10 border border-[#C84B31]/20 text-[#C84B31] text-xs font-bold">
+                <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-[#C84B31]/10 border border-[#C84B31]/20 text-[#C84B31] text-xs font-bold font-mono">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#C84B31]" />
-                  Free 1-on-1 Agency Audit
+                  Free Technical Project Consultation
                 </div>
                 <h2 id="modal-title" className="text-2xl font-bold font-heading text-[#1C1917]">
-                  Book Your Automation Audit
+                  Let&apos;s Discuss Your Project
                 </h2>
                 <p className="text-[#57534E] text-xs sm:text-sm font-normal">
-                  Discover how Mudasir Kamal&apos;s AI engine eliminates manual store ops, stock-outs, and order delays across your client stores.
+                  Connect with Mudasir Kamal&apos;s engineering team to review your custom web, logistics TMS, process automation, or AI system requirements.
                 </p>
               </div>
 
@@ -171,7 +171,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({ isOpen, onClose }) => {
 
                 <div>
                   <label htmlFor="audit-email" className="block text-xs font-bold text-[#1C1917] mb-1">
-                    Agency Work Email *
+                    Work Email *
                   </label>
                   <input
                     id="audit-email"
@@ -179,14 +179,14 @@ export const AuditModal: React.FC<AuditModalProps> = ({ isOpen, onClose }) => {
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="alex@growthagency.com"
+                    placeholder="alex@company.com"
                     className="w-full px-4 py-2.5 bg-[#FAF8F5] border border-[#E7E5E4] rounded-xl text-[#1C1917] text-sm placeholder:text-[#78716C] focus:outline-none focus:border-[#C84B31] font-medium transition-colors"
                   />
                 </div>
 
                 <div>
                   <label htmlFor="audit-whatsapp" className="block text-xs font-bold text-[#1C1917] mb-1">
-                    WhatsApp Number (for direct audit report) *
+                    Phone / WhatsApp Number *
                   </label>
                   <input
                     id="audit-whatsapp"
@@ -201,7 +201,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({ isOpen, onClose }) => {
 
                 <div>
                   <label htmlFor="audit-platform" className="block text-xs font-bold text-[#1C1917] mb-1">
-                    Primary Platform Managed *
+                    Required Technology Service *
                   </label>
                   <select
                     id="audit-platform"
@@ -209,12 +209,14 @@ export const AuditModal: React.FC<AuditModalProps> = ({ isOpen, onClose }) => {
                     onChange={(e) => setPlatform(e.target.value)}
                     className="w-full px-4 py-2.5 bg-[#FAF8F5] border border-[#E7E5E4] rounded-xl text-[#1C1917] text-sm focus:outline-none focus:border-[#C84B31] font-bold transition-colors"
                   >
-                    <option value="Amazon">Amazon Marketplace</option>
-                    <option value="eBay">eBay Motors / Retail</option>
-                    <option value="Walmart">Walmart Marketplace</option>
-                    <option value="TikTok Shop">TikTok Shop</option>
-                    <option value="Shopify">Shopify / Plus</option>
-                    <option value="Multi-Channel">Multi-Channel Enterprise</option>
+                    <option value="Custom Web Development">Custom Web Development</option>
+                    <option value="Logistics Solutions TMS">Logistics &amp; TMS Solutions</option>
+                    <option value="Business Process Automation">Business Process Automation</option>
+                    <option value="E-Commerce Automation">E-Commerce Multi-Store Automation</option>
+                    <option value="Complex Integrations">Complex API &amp; ERP Integrations</option>
+                    <option value="CRM and ERP Development">CRM &amp; ERP Development</option>
+                    <option value="AI Solution Development">AI Solution &amp; Agent Engineering</option>
+                    <option value="Full-Stack Custom System">Full-Stack Custom System</option>
                   </select>
                 </div>
 
