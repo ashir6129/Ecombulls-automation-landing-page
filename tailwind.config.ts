@@ -35,6 +35,7 @@ const config: Config = {
       fontFamily: {
         sans: ["var(--font-inter)", "sans-serif"],
         heading: ["var(--font-plus-jakarta)", "sans-serif"],
+        display: ["var(--font-outfit)", "var(--font-plus-jakarta)", "sans-serif"],
         mono: ["monospace"],
       },
       animation: {

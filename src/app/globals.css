@@ -93,8 +93,24 @@ body {
 }
 
 /* Designer Typography & Visual Effects */
+.font-display {
+  font-family: var(--font-outfit), var(--font-plus-jakarta), sans-serif;
+}
+
+.text-gradient-hero {
+  background: linear-gradient(135deg, #1C1917 0%, #C84B31 55%, #F97316 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .text-gradient-coral {
   background: linear-gradient(135deg, #C84B31 0%, #E86A33 50%, #F97316 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-amber {
+  background: linear-gradient(135deg, #F97316 0%, #EAB308 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -119,6 +135,37 @@ body {
   }
 }
 
+/* Glassmorphism & Glow Container Utilities */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(231, 229, 228, 0.8);
+}
+
+.glass-card-dark {
+  background: rgba(28, 25, 23, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glow-card {
+  position: relative;
+}
+.glow-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(200, 75, 49, 0.4), transparent 60%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
@@ -136,4 +183,5 @@ body {
     linear-gradient(to right, rgba(231, 229, 228, 0.5) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(231, 229, 228, 0.5) 1px, transparent 1px);
 }
+
 

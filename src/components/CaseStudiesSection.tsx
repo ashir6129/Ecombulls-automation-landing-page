@@ -84,12 +84,12 @@ export const CaseStudiesSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#C84B31]/10 border border-[#C84B31]/20 text-[#C84B31] text-xs font-bold font-mono">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#C84B31]/10 border border-[#C84B31]/25 text-[#C84B31] text-xs font-bold font-mono">
             <FolderGit2 className="w-3.5 h-3.5 text-[#C84B31]" />
             <span>Proven Engineering Case Studies</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-[#1C1917] tracking-tight">
-            Turning Visions into High-Impact <span className="text-gradient-coral">Software Reality</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-display text-[#1C1917] tracking-tight leading-tight">
+            Turning Technical Challenges into <span className="text-gradient-coral">High-Impact Software</span>
           </h2>
           <p className="text-[#57534E] text-base sm:text-lg font-normal">
             Explore our track record of custom web solutions, logistics management platforms, and high-load automation systems.
@@ -133,30 +133,30 @@ export const CaseStudiesSection: React.FC = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3 }}
-                className="bg-white border border-[#E7E5E4] rounded-3xl p-7 flex flex-col justify-between card-shadow-hover relative overflow-hidden group"
+                className="bg-white border border-[#E7E5E4] rounded-3xl p-7 flex flex-col justify-between card-shadow-hover relative overflow-hidden group glow-card"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <span className="px-3 py-1 rounded-full bg-[#FAF8F5] border border-[#E7E5E4] text-[#C84B31] font-mono text-[11px] font-bold">
                       {study.categoryLabel}
                     </span>
-                    <span className="w-8 h-8 rounded-full bg-[#FAF8F5] flex items-center justify-center text-[#1C1917] group-hover:bg-[#C84B31] group-hover:text-white transition-colors">
+                    <span className="w-9 h-9 rounded-xl bg-[#FAF8F5] flex items-center justify-center text-[#1C1917] group-hover:bg-[#C84B31] group-hover:text-white transition-colors shadow-2xs">
                       <ArrowUpRight className="w-4 h-4" />
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-bold font-heading text-[#1C1917] leading-snug group-hover:text-[#C84B31] transition-colors">
+                  <h3 className="text-xl font-bold font-display text-[#1C1917] leading-snug group-hover:text-[#C84B31] transition-colors">
                     {study.title}
                   </h3>
 
                   <div>
-                    <h4 className="text-xs font-mono font-bold text-[#78716C] uppercase mb-1">Project Goal</h4>
+                    <h4 className="text-[11px] font-mono font-bold text-[#78716C] uppercase tracking-wider mb-1">Project Objective</h4>
                     <p className="text-xs text-[#57534E] leading-relaxed font-normal">{study.goal}</p>
                   </div>
                 </div>
 
                 <div className="pt-6 mt-6 border-t border-[#E7E5E4] space-y-3">
-                  <div className="flex items-center gap-2 text-xs font-bold text-emerald-600 bg-emerald-50 p-2.5 rounded-xl border border-emerald-200">
+                  <div className="flex items-center gap-2 text-xs font-bold text-emerald-700 bg-emerald-50/80 p-3 rounded-2xl border border-emerald-200 shadow-2xs">
                     <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-600" />
                     <span>{study.impact}</span>
                   </div>
@@ -165,7 +165,7 @@ export const CaseStudiesSection: React.FC = () => {
                     {study.techStack.map((tech, idx) => (
                       <span
                         key={idx}
-                        className="px-2 py-0.5 rounded bg-[#FAF8F5] text-[10px] font-mono text-[#57534E] border border-[#E7E5E4] font-medium"
+                        className="px-2.5 py-1 rounded-md bg-[#FAF8F5] text-[10px] font-mono text-[#57534E] border border-[#E7E5E4] font-semibold"
                       >
                         {tech}
                       </span>

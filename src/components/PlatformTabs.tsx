@@ -25,7 +25,7 @@ const SERVICES_DATA: ServiceData[] = [
     syncRate: "< 100ms Response",
     icon: <Code className="w-6 h-6 text-[#C84B31]" />,
     description:
-      "Achieve your business goals with custom web engineering tailored for speed, scalability, and seamless user experience.",
+      "Achieve your business goals with custom web engineering tailored for speed, scalability, clean code structure, and seamless user experience.",
     features: [
       "Custom responsive Web & SPA/PWA architecture with Next.js & React",
       "High-concurrency backend services built on Node.js and Laravel",
@@ -46,7 +46,7 @@ const SERVICES_DATA: ServiceData[] = [
     syncRate: "Real-Time Tracking",
     icon: <Truck className="w-6 h-6 text-[#C84B31]" />,
     description:
-      "Optimize your logistics operations with tailored TMS, multi-warehouse routing, carrier API integrations, and cargo planning tools.",
+      "Optimize your logistics operations with tailored TMS, multi-warehouse routing, carrier API integrations, and automated cargo tools.",
     features: [
       "Multi-carrier shipping execution (FedEx, UPS, DHL, Canada Post)",
       "Automated warehouse order routing based on stock proximity and rate optimization",
@@ -130,7 +130,7 @@ const SERVICES_DATA: ServiceData[] = [
     syncRate: "Real-Time DB",
     icon: <Database className="w-6 h-6 text-[#C84B31]" />,
     description:
-      "Replace rigid off-the-shelf software with intuitive custom CRM/ERP platforms designed specifically around your business workflow.",
+      "Replace rigid off-the-shelf software with intuitive custom CRM/ERP platforms designed specifically around your operational workflow.",
     features: [
       "Custom client relationship pipelines and interaction tracking",
       "Multi-level role-based access control (RBAC) and security audit logs",
@@ -151,7 +151,7 @@ const SERVICES_DATA: ServiceData[] = [
     syncRate: "Sub-Second Inference",
     icon: <Bot className="w-6 h-6 text-[#C84B31]" />,
     description:
-      "Build custom AI solutions—from automated customer support agents to intelligent data extraction and predictive analytics tools.",
+      "Build custom AI solutions—from automated customer support agents to intelligent data extraction and predictive analytics engines.",
     features: [
       "Custom LLM fine-tuning, RAG knowledge base integration, and AI agents",
       "Automated document analysis, transcriptions, and OCR data extraction",
@@ -176,12 +176,12 @@ export const PlatformTabs: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#C84B31]/10 border border-[#C84B31]/20 text-[#C84B31] text-xs font-bold font-mono">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#C84B31]/10 border border-[#C84B31]/25 text-[#C84B31] text-xs font-bold font-mono">
             <Layers className="w-3.5 h-3.5 text-[#C84B31]" />
             <span>Comprehensive Technology Services</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-[#1C1917] tracking-tight">
-            Engineering Solutions Tailored for <span className="text-gradient-coral">Your Growth</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-display text-[#1C1917] tracking-tight leading-tight">
+            Engineering Solutions Tailored for <span className="text-gradient-coral">Your Business Growth</span>
           </h2>
           <p className="text-[#57534E] text-base sm:text-lg font-normal">
             Whether launching a new digital platform or automating complex backend logistics, Ecombulls delivers fast, scalable software.
@@ -192,7 +192,7 @@ export const PlatformTabs: React.FC = () => {
         <div
           role="tablist"
           aria-label="Ecombulls Core Engineering Services"
-          className="flex items-center justify-start md:justify-center overflow-x-auto no-scrollbar gap-2 p-1.5 bg-white border border-[#E7E5E4] rounded-2xl mb-12 max-w-5xl mx-auto shadow-sm"
+          className="flex items-center justify-start md:justify-center overflow-x-auto no-scrollbar gap-2 p-2 bg-white border border-[#E7E5E4] rounded-2xl mb-12 max-w-5xl mx-auto shadow-sm"
         >
           {SERVICES_DATA.map((tab) => {
             const isActive = activeTab === tab.id;
@@ -232,25 +232,25 @@ export const PlatformTabs: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.3 }}
-            className="grid grid-cols-1 lg:grid-cols-12 gap-8 bg-white border border-[#E7E5E4] rounded-3xl p-8 sm:p-12 shadow-xl relative overflow-hidden text-[#1C1917]"
+            className="grid grid-cols-1 lg:grid-cols-12 gap-8 bg-white border border-[#E7E5E4] rounded-3xl p-8 sm:p-12 shadow-xl relative overflow-hidden text-[#1C1917] glow-card"
           >
             {/* Left Content Column */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="flex items-center gap-3">
-                <span className="px-3 py-1 rounded-full bg-[#C84B31] text-white font-mono text-xs font-bold">
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="px-3.5 py-1 rounded-full bg-[#C84B31] text-white font-mono text-xs font-bold shadow-xs">
                   {currentService.badge}
                 </span>
-                <span className="text-xs font-mono text-[#57534E] flex items-center gap-1 font-bold">
-                  Speed Benchmark: <strong className="text-[#1C1917]">{currentService.syncRate}</strong>
+                <span className="text-xs font-mono text-[#57534E] bg-[#FAF8F5] px-3 py-1 rounded-full border border-[#E7E5E4] font-bold">
+                  Latency: <strong className="text-[#1C1917]">{currentService.syncRate}</strong>
                 </span>
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-2xl bg-[#C84B31]/10 border border-[#C84B31]/20 flex items-center justify-center text-[#C84B31] shrink-0">
+                <div className="w-14 h-14 rounded-2xl bg-[#C84B31]/10 border border-[#C84B31]/20 flex items-center justify-center text-[#C84B31] shrink-0 shadow-xs">
                   {currentService.icon}
                 </div>
                 <div>
-                  <h3 className="text-2xl sm:text-3xl font-bold font-heading text-[#1C1917]">
+                  <h3 className="text-2xl sm:text-3xl font-bold font-display text-[#1C1917]">
                     {currentService.name}
                   </h3>
                   <p className="text-[#57534E] text-xs sm:text-sm font-medium">{currentService.subtitle}</p>
@@ -268,7 +268,7 @@ export const PlatformTabs: React.FC = () => {
                   {currentService.features.map((feat, i) => (
                     <div
                       key={i}
-                      className="flex items-start gap-2.5 p-3.5 rounded-2xl bg-[#FAF8F5] border border-[#E7E5E4] text-xs text-[#1C1917] font-medium"
+                      className="flex items-start gap-2.5 p-3.5 rounded-2xl bg-[#FAF8F5] border border-[#E7E5E4] text-xs text-[#1C1917] font-medium shadow-xs"
                     >
                       <Check className="w-4 h-4 text-[#C84B31] shrink-0 mt-0.5" />
                       <span>{feat}</span>
@@ -278,11 +278,11 @@ export const PlatformTabs: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Column Specs */}
+            {/* Right Column Technical Specs */}
             <div className="lg:col-span-5 flex flex-col justify-between bg-[#FAF8F5] border border-[#E7E5E4] p-6 sm:p-8 rounded-2xl space-y-6">
               <div>
                 <div className="flex items-center justify-between pb-4 border-b border-[#E7E5E4] mb-6">
-                  <span className="text-sm font-bold text-[#1C1917] font-heading">Technical Specs</span>
+                  <span className="text-sm font-bold text-[#1C1917] font-display">Technical Benchmarks</span>
                   <span className="text-[10px] font-mono text-white bg-[#C84B31] px-2.5 py-0.5 rounded-full font-bold">
                     PRODUCTION GUARANTEED
                   </span>
@@ -292,7 +292,7 @@ export const PlatformTabs: React.FC = () => {
                   {currentService.specs.map((spec, idx) => (
                     <div key={idx} className="flex items-center justify-between text-xs py-2 border-b border-[#E7E5E4]">
                       <span className="text-[#57534E] font-medium">{spec.label}</span>
-                      <span className="font-mono font-bold text-[#1C1917] bg-white px-2.5 py-1 rounded border border-[#E7E5E4]">
+                      <span className="font-mono font-bold text-[#1C1917] bg-white px-2.5 py-1 rounded-lg border border-[#E7E5E4] shadow-2xs">
                         {spec.value}
                       </span>
                     </div>
@@ -306,7 +306,7 @@ export const PlatformTabs: React.FC = () => {
                     const auditBtn = document.querySelector("button");
                     if (auditBtn) auditBtn.click();
                   }}
-                  className="w-full py-3.5 rounded-xl bg-[#C84B31] hover:bg-[#B03D25] text-white font-bold text-xs transition-all flex items-center justify-center gap-2 shadow-md"
+                  className="w-full py-3.5 rounded-xl bg-[#C84B31] hover:bg-[#B03D25] text-white font-bold text-xs transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
                 >
                   <span>Request {currentService.name} Proposal</span>
                   <ArrowUpRight className="w-4 h-4 text-white" />

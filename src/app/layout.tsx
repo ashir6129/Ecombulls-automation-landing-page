@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans, Outfit } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -14,25 +14,30 @@ const plusJakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "Ecombulls — AI Ecommerce Automation Agency for Growth Agencies",
+  title: "Ecombulls — AI & Web Automation Solutions",
   description:
-    "Ecombulls automates multi-channel inventory, order fulfillment, pricing sync, and catalog operations for agencies managing stores on Amazon, eBay, Walmart, TikTok Shop, and Shopify.",
+    "Ecombulls builds custom web applications, logistics TMS software, business process automation, and multi-channel e-commerce infrastructure.",
   keywords: [
     "Ecommerce Automation",
-    "Amazon Automation",
-    "Shopify AI Sync",
-    "Walmart Marketplace Automation",
-    "TikTok Shop Automation",
-    "Ecommerce Agency Scaling",
+    "Custom Web Development",
+    "Logistics TMS Software",
+    "Process Automation",
+    "AI Solution Development",
     "Mudasir Kamal",
     "Ecombulls",
   ],
   authors: [{ name: "Mudasir Kamal", url: "https://ecombulls.com" }],
   openGraph: {
-    title: "Ecombulls — AI Ecommerce Automation System",
+    title: "Ecombulls — AI & Web Systems Engineering",
     description:
-      "Automate multi-channel ecommerce ops across Amazon, eBay, Walmart, TikTok Shop, and Shopify with zero human latency.",
+      "Custom web platforms, high-load logistics TMS, process automation, and intelligent e-commerce systems.",
     type: "website",
     siteName: "Ecombulls",
   },
@@ -44,7 +49,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${plusJakarta.variable}`}>
+    <html lang="en" className={`${inter.variable} ${plusJakarta.variable} ${outfit.variable}`}>
       <body className="bg-background text-text-primary antialiased selection:bg-accent/30 selection:text-white min-h-screen flex flex-col">
         {children}
       </body>
