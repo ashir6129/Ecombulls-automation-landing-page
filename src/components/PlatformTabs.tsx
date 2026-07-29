@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, ArrowUpRight, Layers, Code, Truck, Workflow, ShoppingBag, Network, Database, Bot } from "lucide-react";
+import { Check, ArrowUpRight, Layers, FileSpreadsheet, LayoutDashboard, MailCheck, Bot, Users, ShoppingBag } from "lucide-react";
 
 interface ServiceData {
   id: string;
@@ -16,160 +16,139 @@ interface ServiceData {
   specs: { label: string; value: string }[];
 }
 
-const SERVICES_DATA: ServiceData[] = [
+const AGENCY_SERVICES: ServiceData[] = [
   {
-    id: "web-dev",
-    name: "Custom Web Development",
-    badge: "Full-Stack Architecture",
-    subtitle: "High-Performance Next.js, React, Node & Laravel Solutions",
-    syncRate: "< 100ms Response",
-    icon: <Code className="w-6 h-6 text-[#C84B31]" />,
-    description:
-      "Achieve your business goals with custom web engineering tailored for speed, scalability, clean code structure, and seamless user experience.",
-    features: [
-      "Custom responsive Web & SPA/PWA architecture with Next.js & React",
-      "High-concurrency backend services built on Node.js and Laravel",
-      "Clean API design, SEO-optimized markup, and lightning-fast LCP scores",
-      "Comprehensive unit, integration, and security testing before launch",
-    ],
-    specs: [
-      { label: "Core Web Vitals", value: "95+ Guaranteed Score" },
-      { label: "Architecture", value: "Headless & Microservices" },
-      { label: "Code Quality", value: "Strict Type Safety" },
-    ],
-  },
-  {
-    id: "logistics",
-    name: "Logistics Solutions Development",
-    badge: "Custom TMS & 3PL Engine",
-    subtitle: "Streamline Shipment Execution & Multi-Carrier Operations",
-    syncRate: "Real-Time Tracking",
-    icon: <Truck className="w-6 h-6 text-[#C84B31]" />,
-    description:
-      "Optimize your logistics operations with tailored TMS, multi-warehouse routing, carrier API integrations, and automated cargo tools.",
-    features: [
-      "Multi-carrier shipping execution (FedEx, UPS, DHL, Canada Post)",
-      "Automated warehouse order routing based on stock proximity and rate optimization",
-      "Real-time shipment tracking Webhooks and customer notifications",
-      "Custom WMS middleware syncing warehouse nodes with client storefronts",
-    ],
-    specs: [
-      { label: "Carrier APIs", value: "20+ Native Integrations" },
-      { label: "Routing Latency", value: "Sub-Second Dispatch" },
-      { label: "WMS Middleware", value: "Bidirectional Sync" },
-    ],
-  },
-  {
-    id: "process-automation",
-    name: "Business Process Automation",
-    badge: "Workflow Optimization",
-    subtitle: "Eliminate Manual Repetitive Tasks & Human Error",
-    syncRate: "Event-Driven Hooks",
-    icon: <Workflow className="w-6 h-6 text-[#C84B31]" />,
-    description:
-      "Maximize efficiency by replacing manual spreadsheet data entry and repetitive admin workflows with automated software routines.",
-    features: [
-      "Automated CSV/Excel data ingestion, parsing, and cloud database updates",
-      "Scheduled background cron jobs and error alert reporting",
-      "Automated document processing, invoicing, and email notifications",
-      "Departmental workflow routing saving up to 80 hours per month",
-    ],
-    specs: [
-      { label: "Task Execution", value: "24/7 Automated Queue" },
-      { label: "Error Reduction", value: "99.9% Operational Accuracy" },
-      { label: "Time Savings", value: "80+ Hrs/Month Average" },
-    ],
-  },
-  {
-    id: "ecommerce-auto",
-    name: "E-Commerce Automation",
-    badge: "Multi-Store Sync Engine",
-    subtitle: "Master Catalog Distribution & Stock-Lock Protection",
+    id: "sheets-automation",
+    name: "Automated Google Sheets & ERP Pipelines",
+    badge: "No More Manual CSVs",
+    subtitle: "Real-Time Sync for eBay, Amazon & Storefront Data into Sheets",
     syncRate: "< 60 Seconds",
+    icon: <FileSpreadsheet className="w-6 h-6 text-[#C84B31]" />,
+    description:
+      "Automatically stream sales, inventory subtractions, customer orders, and profit margins directly into Google Sheets and agency ERPs without manual CSV exports.",
+    features: [
+      "Automated live feed from eBay, Amazon, Walmart & Shopify into Google Sheets",
+      "Instant inventory deduction and low-stock alert triggers across accounts",
+      "Automated net profit calculation, fee breakdown, and financial summaries",
+      "Zero manual data entry errors—saves 60+ account manager hours per month",
+    ],
+    specs: [
+      { label: "Data Latency", value: "Real-Time Hook" },
+      { label: "Sheets Integration", value: "Native Google Sheets API" },
+      { label: "Accounts Supported", value: "Unlimited Client Stores" },
+    ],
+  },
+  {
+    id: "master-dashboard",
+    name: "Unified Multi-Client Master Dashboard",
+    badge: "Central Command Center",
+    subtitle: "Monitor 10 to 15+ Client Accounts on a Single Screen",
+    syncRate: "Microsecond Live Feed",
+    icon: <LayoutDashboard className="w-6 h-6 text-[#C84B31]" />,
+    description:
+      "Single-screen command portal giving agency executives instant visibility into sales GMV, stock-out risks, Buy Box rates, and fulfillment status across all client stores.",
+    features: [
+      "Single-screen unified view of 10, 15, or 30+ client marketplace accounts",
+      "Real-time Buy Box suppression warnings and stock-out alerts",
+      "Unified order velocity chart and revenue forecasting across all channels",
+      "Multi-user permission levels for account managers and agency leadership",
+    ],
+    specs: [
+      { label: "Multi-Client Capacity", value: "15+ Stores on 1 Screen" },
+      { label: "Alert Latency", value: "Instant SMS / Slack" },
+      { label: "Visual Dashboards", value: "Real-Time KPI Charts" },
+    ],
+  },
+  {
+    id: "invoicing-billing",
+    name: "Automated Invoicing & Payment Workflows",
+    badge: "Billing Automation",
+    subtitle: "Auto-Generated Invoices & Automated Client Billing Emails",
+    syncRate: "Automated Schedule",
+    icon: <MailCheck className="w-6 h-6 text-[#C84B31]" />,
+    description:
+      "Automate client fee calculations, generate professional PDF invoices, and dispatch automated payment collection emails with zero manual effort.",
+    features: [
+      "Automated management fee calculation based on percentage of GMV or retainer",
+      "Auto-generated branded PDF invoices generated and emailed to agency clients",
+      "Automated payment reminder workflows for outstanding client balances",
+      "Seamless synchronization with QuickBooks, Xero, and Stripe Billing",
+    ],
+    specs: [
+      { label: "Billing Processing", value: "< 5 Minutes Monthly" },
+      { label: "Payment Systems", value: "Stripe, Xero, QuickBooks" },
+      { label: "Invoice Accuracy", value: "100% Automated Math" },
+    ],
+  },
+  {
+    id: "multi-store-ops",
+    name: "Multi-Store Agency Portfolio Sync",
+    badge: "Store Ops Automation",
+    subtitle: "Automate Inventory, Repricing & Fulfillment Across Stores",
+    syncRate: "Event-Driven Lock",
     icon: <ShoppingBag className="w-6 h-6 text-[#C84B31]" />,
     description:
-      "Connect marketplace storefronts (Amazon, eBay, Walmart, TikTok Shop, Shopify) with automated stock locking, pricing rules, and order dispatch.",
+      "Automate store operations across Amazon, eBay, Walmart, TikTok Shop, and Shopify with zero human latency and 0% stock-out suspension risk.",
     features: [
-      "Multi-channel stock locking preventing oversells during viral sales surges",
-      "Dynamic repricing rules with minimum/maximum profit margin safeguards",
-      "Supplier feed imports (XML, JSON, CSV) mapped to store catalogs",
-      "Automated order routing directly to 3PL fulfillment centers",
+      "Real-time inventory locking across all client marketplaces simultaneously",
+      "Dynamic Buy Box algorithmic repricing protecting client profit margins",
+      "Automated order routing to FBA, WFS, or 3PL warehouse fulfillment",
+      "Catalog distribution and multi-variant synchronization",
     ],
     specs: [
       { label: "Oversell Risk", value: "0.00% Guaranteed" },
-      { label: "Platform APIs", value: "Amazon, eBay, Walmart, TikTok" },
-      { label: "Catalog Scale", value: "100k+ SKUs Supported" },
+      { label: "Platforms", value: "Amazon, eBay, Walmart, TikTok" },
+      { label: "Order Dispatch", value: "Automated 3PL Switch" },
     ],
   },
   {
-    id: "integrations",
-    name: "Complex API Integrations",
-    badge: "API Middleware & Hooks",
-    subtitle: "Bridge Disparate Software Systems & Cloud Services",
-    syncRate: "Instant Webhook",
-    icon: <Network className="w-6 h-6 text-[#C84B31]" />,
-    description:
-      "Unify isolated software platforms through robust REST & GraphQL API integrations, message queues, and enterprise webhooks.",
-    features: [
-      "Custom RESTful & GraphQL API middleware development",
-      "Third-party SaaS API connections (Stripe, PayPal, Klaviyo, Gorgias)",
-      "High-throughput rate limit handling with automatic retry queues",
-      "Data transformation pipelines connecting legacy ERPs to modern web apps",
-    ],
-    specs: [
-      { label: "Protocol Support", value: "REST, GraphQL, gRPC" },
-      { label: "Rate Limit Guard", value: "Exponential Backoff Queue" },
-      { label: "Uptime SLA", value: "99.98% Monitored" },
-    ],
-  },
-  {
-    id: "crm-erp",
-    name: "CRM and ERP Development",
-    badge: "Custom Management Portal",
-    subtitle: "Tailored Internal Operations & Customer Intelligence",
-    syncRate: "Real-Time DB",
-    icon: <Database className="w-6 h-6 text-[#C84B31]" />,
-    description:
-      "Replace rigid off-the-shelf software with intuitive custom CRM/ERP platforms designed specifically around your operational workflow.",
-    features: [
-      "Custom client relationship pipelines and interaction tracking",
-      "Multi-level role-based access control (RBAC) and security audit logs",
-      "Financial reporting, inventory accounting, and invoice generation",
-      "Custom analytics dashboards with real-time KPI visualization",
-    ],
-    specs: [
-      { label: "Access Control", value: "Granular RBAC Roles" },
-      { label: "Reporting", value: "Real-Time KPI Charts" },
-      { label: "Customization", value: "100% Tailored Workflow" },
-    ],
-  },
-  {
-    id: "ai-solutions",
-    name: "AI Solution Development",
-    badge: "AI & Machine Learning",
-    subtitle: "Custom AI Agents, Intelligent Bots, & LLM Workflows",
+    id: "rag-chatbots",
+    name: "E-Commerce RAG AI Chatbots & Agents",
+    badge: "Autonomous Customer Support",
+    subtitle: "RAG AI Assistants Trained on Product Catalogs & Orders",
     syncRate: "Sub-Second Inference",
     icon: <Bot className="w-6 h-6 text-[#C84B31]" />,
     description:
-      "Build custom AI solutions—from automated customer support agents to intelligent data extraction and predictive analytics engines.",
+      "Custom Retrieval-Augmented Generation (RAG) AI chatbots trained on store databases, product specs, and order tracking to resolve client customer queries 24/7.",
     features: [
-      "Custom LLM fine-tuning, RAG knowledge base integration, and AI agents",
-      "Automated document analysis, transcriptions, and OCR data extraction",
-      "Predictive demand forecasting for inventory and sales trends",
-      "Smart chatbot assistants integrated directly into your web applications",
+      "RAG AI trained directly on client store catalogs, FAQs, and shipping rules",
+      "Real-time order lookup enabling AI bots to answer 'Where is my order?'",
+      "Autonomous 24/7 customer support resolving 75%+ of tickets automatically",
+      "Seamless escalation to human agents with full conversation context",
     ],
     specs: [
-      { label: "AI Models", value: "Gemini, OpenAI, Llama 3" },
-      { label: "RAG Engine", value: "Vector DB Search" },
-      { label: "Automation", value: "Autonomous Agent Actions" },
+      { label: "AI Models", value: "Gemini, OpenAI RAG" },
+      { label: "Resolution Rate", value: "75%+ Automated Resolution" },
+      { label: "Channels", value: "Web, WhatsApp, Email, Zendesk" },
+    ],
+  },
+  {
+    id: "staff-ops",
+    name: "Agency Staff & Workflow Automation",
+    badge: "Internal Ops Engine",
+    subtitle: "Automated Task Assignments & Weekly Client Reports",
+    syncRate: "Automated Dispatch",
+    icon: <Users className="w-6 h-6 text-[#C84B31]" />,
+    description:
+      "Automate internal agency task routing, track account manager productivity, and generate automated weekly performance reports for your clients.",
+    features: [
+      "Automated task creation when store issues occur (repricing alerts, low stock)",
+      "Account manager performance tracking and workload distribution",
+      "Automated weekly PDF/Email performance reports delivered to agency clients",
+      "Centralized agency knowledge base and standardized SOP workflows",
+    ],
+    specs: [
+      { label: "Client Reports", value: "100% Auto-Generated" },
+      { label: "Internal Tasking", value: "Automated Event Triggers" },
+      { label: "Capacity Boost", value: "3x Stores per Manager" },
     ],
   },
 ];
 
 export const PlatformTabs: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<string>("web-dev");
+  const [activeTab, setActiveTab] = useState<string>("sheets-automation");
 
-  const currentService = SERVICES_DATA.find((s) => s.id === activeTab) || SERVICES_DATA[0];
+  const currentService = AGENCY_SERVICES.find((s) => s.id === activeTab) || AGENCY_SERVICES[0];
 
   return (
     <section id="services" className="py-24 bg-[#FAF8F5] relative overflow-hidden border-b border-[#E7E5E4]">
@@ -178,23 +157,23 @@ export const PlatformTabs: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#C84B31]/10 border border-[#C84B31]/25 text-[#C84B31] text-xs font-bold font-mono">
             <Layers className="w-3.5 h-3.5 text-[#C84B31]" />
-            <span>Comprehensive Technology Services</span>
+            <span>Core Agency Automation Solutions</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-display text-[#1C1917] tracking-tight leading-tight">
-            Engineering Solutions Tailored for <span className="text-gradient-coral">Your Business Growth</span>
+            Automating E-Commerce Agencies to <span className="text-gradient-coral">Run &amp; Scale Effortlessly</span>
           </h2>
           <p className="text-[#57534E] text-base sm:text-lg font-normal">
-            Whether launching a new digital platform or automating complex backend logistics, Ecombulls delivers fast, scalable software.
+            Eliminate manual CSV uploads, scattered dashboards, and billing chaos. Ecombulls automates your entire agency workflow from a single intelligent engine.
           </p>
         </div>
 
         {/* Sliding Tabs Navigation */}
         <div
           role="tablist"
-          aria-label="Ecombulls Core Engineering Services"
+          aria-label="Core Agency Automation Services"
           className="flex items-center justify-start md:justify-center overflow-x-auto no-scrollbar gap-2 p-2 bg-white border border-[#E7E5E4] rounded-2xl mb-12 max-w-5xl mx-auto shadow-sm"
         >
-          {SERVICES_DATA.map((tab) => {
+          {AGENCY_SERVICES.map((tab) => {
             const isActive = activeTab === tab.id;
             return (
               <button
@@ -262,7 +241,7 @@ export const PlatformTabs: React.FC = () => {
               {/* Feature Checklist */}
               <div className="space-y-3 pt-2">
                 <h4 className="text-xs font-mono tracking-widest text-[#C84B31] uppercase font-bold">
-                  KEY AUTOMATION CAPABILITIES
+                  AGENCY AUTOMATION ADVANTAGES
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {currentService.features.map((feat, i) => (
@@ -282,9 +261,9 @@ export const PlatformTabs: React.FC = () => {
             <div className="lg:col-span-5 flex flex-col justify-between bg-[#FAF8F5] border border-[#E7E5E4] p-6 sm:p-8 rounded-2xl space-y-6">
               <div>
                 <div className="flex items-center justify-between pb-4 border-b border-[#E7E5E4] mb-6">
-                  <span className="text-sm font-bold text-[#1C1917] font-display">Technical Benchmarks</span>
+                  <span className="text-sm font-bold text-[#1C1917] font-display">Agency Impact Metrics</span>
                   <span className="text-[10px] font-mono text-white bg-[#C84B31] px-2.5 py-0.5 rounded-full font-bold">
-                    PRODUCTION GUARANTEED
+                    VERIFIED ENGINE SLA
                   </span>
                 </div>
 
@@ -308,7 +287,7 @@ export const PlatformTabs: React.FC = () => {
                   }}
                   className="w-full py-3.5 rounded-xl bg-[#C84B31] hover:bg-[#B03D25] text-white font-bold text-xs transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
                 >
-                  <span>Request {currentService.name} Proposal</span>
+                  <span>Automate Your Agency Ops</span>
                   <ArrowUpRight className="w-4 h-4 text-white" />
                 </button>
               </div>
