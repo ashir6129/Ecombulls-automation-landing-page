@@ -7,6 +7,7 @@ import { Check, ArrowUpRight, Layers, FileSpreadsheet, LayoutDashboard, MailChec
 interface ServiceData {
   id: string;
   name: string;
+  shortName: string;
   badge: string;
   subtitle: string;
   syncRate: string;
@@ -20,6 +21,7 @@ const AGENCY_SERVICES: ServiceData[] = [
   {
     id: "sheets-automation",
     name: "Automated Google Sheets & ERP Pipelines",
+    shortName: "Google Sheets Sync",
     badge: "No More Manual CSVs",
     subtitle: "Real-Time Sync for eBay, Amazon & Storefront Data into Sheets",
     syncRate: "< 60 Seconds",
@@ -41,6 +43,7 @@ const AGENCY_SERVICES: ServiceData[] = [
   {
     id: "master-dashboard",
     name: "Unified Multi-Client Master Dashboard",
+    shortName: "Master Dashboard",
     badge: "Central Command Center",
     subtitle: "Monitor 10 to 15+ Client Accounts on a Single Screen",
     syncRate: "Microsecond Live Feed",
@@ -62,6 +65,7 @@ const AGENCY_SERVICES: ServiceData[] = [
   {
     id: "invoicing-billing",
     name: "Automated Invoicing & Payment Workflows",
+    shortName: "Invoicing & Billing",
     badge: "Billing Automation",
     subtitle: "Auto-Generated Invoices & Automated Client Billing Emails",
     syncRate: "Automated Schedule",
@@ -83,6 +87,7 @@ const AGENCY_SERVICES: ServiceData[] = [
   {
     id: "multi-store-ops",
     name: "Multi-Store Agency Portfolio Sync",
+    shortName: "Multi-Store Sync",
     badge: "Store Ops Automation",
     subtitle: "Automate Inventory, Repricing & Fulfillment Across Stores",
     syncRate: "Event-Driven Lock",
@@ -104,6 +109,7 @@ const AGENCY_SERVICES: ServiceData[] = [
   {
     id: "rag-chatbots",
     name: "E-Commerce RAG AI Chatbots & Agents",
+    shortName: "RAG AI Chatbots",
     badge: "Autonomous Customer Support",
     subtitle: "RAG AI Assistants Trained on Product Catalogs & Orders",
     syncRate: "Sub-Second Inference",
@@ -125,6 +131,7 @@ const AGENCY_SERVICES: ServiceData[] = [
   {
     id: "staff-ops",
     name: "Agency Staff & Workflow Automation",
+    shortName: "Staff Operations",
     badge: "Internal Ops Engine",
     subtitle: "Automated Task Assignments & Weekly Client Reports",
     syncRate: "Automated Dispatch",
@@ -167,11 +174,11 @@ export const PlatformTabs: React.FC = () => {
           </p>
         </div>
 
-        {/* Sliding Tabs Navigation */}
+        {/* Responsive Grid Tab Navigation */}
         <div
           role="tablist"
           aria-label="Core Agency Automation Services"
-          className="flex items-center justify-start md:justify-center overflow-x-auto no-scrollbar gap-2 p-2 bg-white border border-[#E7E5E4] rounded-2xl mb-12 max-w-5xl mx-auto shadow-sm"
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 p-2 bg-white border border-[#E7E5E4] rounded-2xl mb-12 max-w-6xl mx-auto shadow-sm"
         >
           {AGENCY_SERVICES.map((tab) => {
             const isActive = activeTab === tab.id;
@@ -183,18 +190,13 @@ export const PlatformTabs: React.FC = () => {
                 aria-controls={`panel-${tab.id}`}
                 id={`tab-${tab.id}`}
                 onClick={() => setActiveTab(tab.id)}
-                className={`relative px-4 py-3 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-colors z-10 flex items-center gap-2 ${
-                  isActive ? "text-white" : "text-[#1C1917] hover:text-[#C84B31]"
+                className={`relative py-3.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all z-10 flex items-center justify-center text-center ${
+                  isActive
+                    ? "bg-[#C84B31] text-white shadow-md font-extrabold"
+                    : "text-[#1C1917] hover:text-[#C84B31] hover:bg-[#FAF8F5]"
                 }`}
               >
-                {isActive && (
-                  <motion.div
-                    layoutId="activeTabIndicator"
-                    className="absolute inset-0 bg-[#C84B31] rounded-xl shadow-md -z-10"
-                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                  />
-                )}
-                <span>{tab.name}</span>
+                <span>{tab.shortName}</span>
               </button>
             );
           })}
