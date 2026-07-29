@@ -7,6 +7,7 @@ import { Marquee } from "@/components/Marquee";
 import { Hero } from "@/components/Hero";
 import { LogoStrip } from "@/components/LogoStrip";
 import { PlatformTabs } from "@/components/PlatformTabs";
+import { OtherServicesSection } from "@/components/OtherServicesSection";
 import { CaseStudiesSection } from "@/components/CaseStudiesSection";
 import { WhyUsSection } from "@/components/WhyUsSection";
 import { HowItWorks } from "@/components/HowItWorks";
@@ -54,8 +55,11 @@ export default function Home() {
       {/* Technology & Integrations Marquee Strip */}
       <LogoStrip />
 
-      {/* Core Engineering Services Cards Showcase */}
+      {/* Core Agency Automation Solutions Showcase */}
       <PlatformTabs />
+
+      {/* Other Engineering & Technology Services Cards Grid */}
+      <OtherServicesSection onOpenAudit={handleOpenAuditModal} />
 
       {/* Proven Engineering Case Studies Portfolio */}
       <CaseStudiesSection />
@@ -94,4 +98,4 @@ export default function Home() {
       <AuditModal isOpen={isAuditModalOpen} onClose={handleCloseAuditModal} />
     </main>
   );
-}
+};
