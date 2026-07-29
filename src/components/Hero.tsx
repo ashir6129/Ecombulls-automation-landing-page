@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, ShieldCheck, Zap, Sparkles, Play, Pause, Volume2, VolumeX } from "lucide-react";
 import { MOTION_TOKENS, fadeInVariants } from "@/lib/motion";
@@ -11,9 +11,19 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ onOpenAudit }) => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().then(() => {
+        setIsPlaying(true);
+      }).catch(() => {
+        setIsPlaying(false);
+      });
+    }
+  }, []);
 
   const togglePlay = () => {
     if (!videoRef.current) return;
@@ -132,7 +142,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAudit }) => {
             </motion.div>
           </motion.div>
 
-          {/* Right Column: Hero Interactive Video Container (Matching Screenshot Style) */}
+          {/* Right Column: Hero Autoplay Video Container */}
           <div className="lg:col-span-5 relative">
             {/* Top Curved Announcement Badge */}
             <div className="text-center mb-3">
@@ -146,9 +156,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAudit }) => {
                 ref={videoRef}
                 src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
                 poster="/images/hero-agency.jpg"
+                autoPlay
+                muted
+                loop
                 playsInline
                 className="w-full h-full object-cover"
-                onEnded={() => setIsPlaying(false)}
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
               />
 
               {/* Video Overlay Tint when Paused */}
@@ -160,15 +174,14 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAudit }) => {
               <button
                 onClick={togglePlay}
                 aria-label={isPlaying ? "Pause video" : "Play video"}
-                className="absolute inset-0 m-auto w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#C84B31] text-white flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all z-20 group"
+                className={`absolute inset-0 m-auto w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#C84B31] text-white flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all z-20 group ${
+                  isPlaying ? "opacity-0 hover:opacity-100" : "opacity-100"
+                }`}
               >
                 {isPlaying ? (
                   <Pause className="w-8 h-8 sm:w-9 sm:h-9 text-white" />
                 ) : (
                   <Play className="w-8 h-8 sm:w-9 sm:h-9 text-white translate-x-0.5" />
-                )}
-                {!isPlaying && (
-                  <span className="absolute inset-0 rounded-full bg-[#C84B31] animate-ping opacity-40 -z-10" />
                 )}
               </button>
 
@@ -181,13 +194,18 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAudit }) => {
               {/* Bottom Audio Toggle Button */}
               <button
                 onClick={toggleMute}
-                aria-label={isMuted ? "Unmute audio" : "Mute audio"}
-                className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-white flex items-center justify-center hover:bg-black transition-colors z-20 shadow-md"
+                className="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-[#C84B31] hover:bg-[#B03D25] backdrop-blur-md border border-white/20 text-white font-mono text-xs font-bold flex items-center gap-1.5 z-20 shadow-lg"
               >
                 {isMuted ? (
-                  <VolumeX className="w-4 h-4 text-rose-400" />
+                  <>
+                    <VolumeX className="w-4 h-4 text-white" />
+                    <span>Click for Sound</span>
+                  </>
                 ) : (
-                  <Volume2 className="w-4 h-4 text-emerald-400" />
+                  <>
+                    <Volume2 className="w-4 h-4 text-emerald-300" />
+                    <span>Mute Audio</span>
+                  </>
                 )}
               </button>
 
