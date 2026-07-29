@@ -3,10 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --color-light: #e9ece6;
-  --color-sage: #bccbc9;
-  --color-dark: #141c1b;
-  --color-border: #bccbc9;
+  --color-background: #fff5b8;
+  --color-gold: #cca25a;
+  --color-gold-dark: #a8813a;
+  --color-surface: #f7e8a1;
+  --color-surface-elevated: #efe094;
+  --color-border: #cca25a;
+  --color-text-primary: #2c200b;
+  --color-text-muted: #3a2a0e;
+  --color-text-dim: #5c451a;
 }
 
 * {
@@ -21,8 +26,8 @@ html {
 }
 
 body {
-  background-color: #e9ece6;
-  color: #141c1b;
+  background-color: #fff5b8;
+  color: #2c200b;
   font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -34,25 +39,25 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #e9ece6;
+  background: #fff5b8;
 }
 ::-webkit-scrollbar-thumb {
-  background: #bccbc9;
+  background: #cca25a;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #141c1b;
+  background: #a8813a;
 }
 
 /* Custom Selection */
 ::selection {
-  background: #bccbc9;
-  color: #141c1b;
+  background: #cca25a;
+  color: #fff5b8;
 }
 
 /* Focus Ring Custom Utility */
 *:focus-visible {
-  outline: 2px solid #bccbc9;
+  outline: 2px solid #cca25a;
   outline-offset: 2px;
 }
 

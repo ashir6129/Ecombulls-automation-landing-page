@@ -20,7 +20,7 @@ import { AuditModal } from "@/components/AuditModal";
 const DynamicTestimonials = dynamic(() => import("@/components/Testimonials"), {
   ssr: false,
   loading: () => (
-    <div className="py-20 max-w-4xl mx-auto rounded-3xl bg-[#BCCBC9] border border-[#141C1B] animate-pulse flex items-center justify-center text-[#141C1B] text-xs font-mono">
+    <div className="py-20 max-w-4xl mx-auto rounded-3xl bg-[#CCA25A] border border-[#2C200B] animate-pulse flex items-center justify-center text-[#FFF5B8] text-xs font-mono font-bold">
       Loading Partner Verification Stories...
     </div>
   ),
@@ -33,7 +33,7 @@ export default function Home() {
   const handleCloseAuditModal = () => setIsAuditModalOpen(false);
 
   return (
-    <main className="min-h-screen bg-[#E9ECE6] text-[#141C1B] selection:bg-[#BCCBC9] selection:text-[#141C1B] relative">
+    <main className="min-h-screen bg-[#FFF5B8] text-[#2C200B] selection:bg-[#CCA25A] selection:text-[#FFF5B8] relative">
       {/* Top Announcement Scrolling Ticker Line ONLY (No Navbar) */}
       <div className="sticky top-0 z-50">
         <Marquee onOpenAudit={handleOpenAuditModal} />

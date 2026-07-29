@@ -70,28 +70,28 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenAudit }) => {
   ];
 
   return (
-    <section ref={sectionRef} id="how-it-works" className="py-24 bg-[#BCCBC9] relative overflow-hidden border-b border-[#141C1B]">
+    <section ref={sectionRef} id="how-it-works" className="py-24 bg-[#F7E8A1] relative overflow-hidden border-b border-[#CCA25A]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E9ECE6] border border-[#141C1B] text-[#141C1B] text-xs font-bold">
-            <ShieldCheck className="w-3.5 h-3.5 text-[#141C1B]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FFF5B8] border border-[#CCA25A] text-[#2C200B] text-xs font-bold">
+            <ShieldCheck className="w-3.5 h-3.5 text-[#CCA25A]" />
             <span>Operational Blueprint</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#141C1B] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#2C200B] tracking-tight">
             How Ecombulls Automates Agency Store Operations
           </h2>
-          <p className="text-[#141C1B] text-base font-medium">
+          <p className="text-[#3A2A0E] text-base font-medium">
             From initial API connection to autonomous 24/7 execution — structured in 3 simple phases.
           </p>
         </div>
 
         {/* Timeline Container */}
         <div className="relative max-w-4xl mx-auto">
-          <div className="hidden md:block absolute top-8 bottom-8 left-1/2 -translate-x-1/2 w-0.5 bg-[#141C1B]/30 z-0">
+          <div className="hidden md:block absolute top-8 bottom-8 left-1/2 -translate-x-1/2 w-0.5 bg-[#CCA25A]/40 z-0">
             <div
               ref={lineRef}
-              className="w-full h-full bg-[#141C1B] origin-top scale-y-0"
+              className="w-full h-full bg-[#CCA25A] origin-top scale-y-0"
             />
           </div>
 
@@ -109,28 +109,28 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenAudit }) => {
                 >
                   {/* Step Card Content */}
                   <div className="w-full md:w-1/2">
-                    <div className="bg-[#E9ECE6] border-2 border-[#141C1B] p-6 sm:p-8 rounded-3xl shadow-lg hover:border-[#141C1B] transition-all group">
+                    <div className="bg-[#FFF5B8] border-2 border-[#CCA25A] p-6 sm:p-8 rounded-3xl shadow-lg hover:border-[#2C200B] transition-all group">
                       <div className="flex items-center justify-between mb-4">
-                        <span className="text-xs font-mono font-bold text-[#141C1B] bg-[#BCCBC9] px-2.5 py-1 rounded-lg border border-[#141C1B]">
+                        <span className="text-xs font-mono font-bold text-[#FFF5B8] bg-[#CCA25A] px-2.5 py-1 rounded-lg border border-[#2C200B]">
                           PHASE {item.step}
                         </span>
-                        <div className="w-10 h-10 rounded-xl bg-[#BCCBC9] border border-[#141C1B] flex items-center justify-center text-[#141C1B] group-hover:scale-110 transition-transform">
-                          <Icon className="w-5 h-5 text-[#141C1B]" />
+                        <div className="w-10 h-10 rounded-xl bg-[#F7E8A1] border border-[#CCA25A] flex items-center justify-center text-[#2C200B] group-hover:scale-110 transition-transform">
+                          <Icon className="w-5 h-5 text-[#CCA25A]" />
                         </div>
                       </div>
 
-                      <h3 className="text-xl font-bold font-heading text-[#141C1B] mb-3">
+                      <h3 className="text-xl font-bold font-heading text-[#2C200B] mb-3">
                         {item.title}
                       </h3>
 
-                      <p className="text-[#141C1B] text-sm leading-relaxed mb-6 font-medium">
+                      <p className="text-[#3A2A0E] text-sm leading-relaxed mb-6 font-medium">
                         {item.description}
                       </p>
 
-                      <div className="space-y-2 pt-2 border-t border-[#141C1B] font-medium">
+                      <div className="space-y-2 pt-2 border-t border-[#CCA25A] font-medium">
                         {item.highlights.map((h, i) => (
-                          <div key={i} className="flex items-center gap-2 text-xs text-[#141C1B]">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-[#141C1B] shrink-0" />
+                          <div key={i} className="flex items-center gap-2 text-xs text-[#2C200B]">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-[#CCA25A] shrink-0" />
                             <span>{h}</span>
                           </div>
                         ))}
@@ -139,7 +139,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenAudit }) => {
                   </div>
 
                   {/* Center Node Badge */}
-                  <div className="w-12 h-12 rounded-2xl bg-[#BCCBC9] border-2 border-[#141C1B] text-[#141C1B] font-bold font-mono text-sm flex items-center justify-center shrink-0 shadow-lg z-20">
+                  <div className="w-12 h-12 rounded-2xl bg-[#CCA25A] border-2 border-[#2C200B] text-[#FFF5B8] font-bold font-mono text-sm flex items-center justify-center shrink-0 shadow-lg z-20">
                     {item.step}
                   </div>
 
@@ -154,10 +154,10 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenAudit }) => {
         <div className="mt-16 text-center">
           <button
             onClick={onOpenAudit}
-            className="px-8 py-4 bg-[#E9ECE6] hover:bg-white border border-[#141C1B] text-[#141C1B] font-bold rounded-xl shadow-lg transition-all inline-flex items-center gap-2"
+            className="px-8 py-4 bg-[#CCA25A] hover:bg-[#A8813A] border border-[#2C200B] text-[#FFF5B8] font-bold rounded-xl shadow-lg transition-all inline-flex items-center gap-2"
           >
             <span>Start Phase 01 Audit Now</span>
-            <ArrowRight className="w-4 h-4 text-[#141C1B]" />
+            <ArrowRight className="w-4 h-4 text-[#FFF5B8]" />
           </button>
         </div>
       </div>

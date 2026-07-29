@@ -45,18 +45,18 @@ export const FAQAccordion: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-24 bg-[#E9ECE6] relative overflow-hidden border-b border-[#141C1B] text-[#141C1B]">
+    <section id="faq" className="py-24 bg-[#FFF5B8] relative overflow-hidden border-b border-[#CCA25A] text-[#2C200B]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#BCCBC9] border border-[#141C1B] text-[#141C1B] text-xs font-bold">
-            <HelpCircle className="w-3.5 h-3.5 text-[#141C1B]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F7E8A1] border border-[#CCA25A] text-[#2C200B] text-xs font-bold">
+            <HelpCircle className="w-3.5 h-3.5 text-[#CCA25A]" />
             <span>Got Questions?</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#141C1B] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#2C200B] tracking-tight">
             Frequently Asked Questions
           </h2>
-          <p className="text-[#141C1B] text-base font-medium">
+          <p className="text-[#3A2A0E] text-base font-medium">
             Everything you need to know about implementing Ecombulls AI automation across your client store portfolio.
           </p>
         </div>
@@ -68,7 +68,7 @@ export const FAQAccordion: React.FC = () => {
             return (
               <div
                 key={index}
-                className="bg-[#BCCBC9] border border-[#141C1B] rounded-2xl overflow-hidden transition-colors"
+                className="bg-[#F7E8A1] border border-[#CCA25A] rounded-2xl overflow-hidden transition-colors"
               >
                 <button
                   onClick={() => toggleIndex(index)}
@@ -76,12 +76,12 @@ export const FAQAccordion: React.FC = () => {
                   aria-controls={`faq-answer-${index}`}
                   className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none"
                 >
-                  <span className="text-base font-bold font-heading text-[#141C1B] pr-4">
+                  <span className="text-base font-bold font-heading text-[#2C200B] pr-4">
                     {faq.question}
                   </span>
                   <div
-                    className={`w-8 h-8 rounded-lg bg-[#E9ECE6] border border-[#141C1B] flex items-center justify-center text-[#141C1B] transition-transform duration-300 shrink-0 ${
-                      isOpen ? "rotate-180 bg-[#141C1B] text-[#E9ECE6]" : ""
+                    className={`w-8 h-8 rounded-lg bg-[#FFF5B8] border border-[#CCA25A] flex items-center justify-center text-[#2C200B] transition-transform duration-300 shrink-0 ${
+                      isOpen ? "rotate-180 bg-[#CCA25A] text-[#FFF5B8]" : ""
                     }`}
                   >
                     <ChevronDown className="w-4 h-4" />
@@ -97,7 +97,7 @@ export const FAQAccordion: React.FC = () => {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                     >
-                      <div className="px-6 pb-6 pt-1 text-sm text-[#141C1B] leading-relaxed border-t border-[#141C1B] mt-1 font-medium">
+                      <div className="px-6 pb-6 pt-1 text-sm text-[#2C200B] leading-relaxed border-t border-[#CCA25A] mt-1 font-medium">
                         {faq.answer}
                       </div>
                     </motion.div>

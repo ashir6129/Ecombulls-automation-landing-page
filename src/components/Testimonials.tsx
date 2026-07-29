@@ -60,46 +60,46 @@ export const Testimonials: React.FC = () => {
   const current = TESTIMONIALS[currentIndex];
 
   return (
-    <section id="results" className="py-24 bg-[#E9ECE6] relative overflow-hidden border-b border-[#141C1B] text-[#141C1B]">
+    <section id="results" className="py-24 bg-[#FFF5B8] relative overflow-hidden border-b border-[#CCA25A] text-[#2C200B]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#BCCBC9] border border-[#141C1B] text-[#141C1B] text-xs font-bold">
-            <Quote className="w-3.5 h-3.5 text-[#141C1B]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F7E8A1] border border-[#CCA25A] text-[#2C200B] text-xs font-bold">
+            <Quote className="w-3.5 h-3.5 text-[#CCA25A]" />
             <span>Agency Partner Success Stories</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#141C1B] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#2C200B] tracking-tight">
             Validated Results from High-Growth Agency Leaders
           </h2>
-          <p className="text-[#141C1B] text-base font-medium">
+          <p className="text-[#3A2A0E] text-base font-medium">
             See how top e-commerce agencies leverage Mudasir Kamal&apos;s AI system to unlock scale and zero-error fulfillment.
           </p>
         </div>
 
         {/* Carousel Container */}
-        <div className="max-w-4xl mx-auto bg-[#BCCBC9] border-2 border-[#141C1B] rounded-3xl p-8 sm:p-12 shadow-xl relative text-[#141C1B]">
+        <div className="max-w-4xl mx-auto bg-[#F7E8A1] border-2 border-[#CCA25A] rounded-3xl p-8 sm:p-12 shadow-xl relative text-[#2C200B]">
           <div className="flex items-center justify-between mb-8">
-            <div className="flex items-center gap-1 text-[#141C1B]">
+            <div className="flex items-center gap-1 text-[#CCA25A]">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-[#141C1B] text-[#141C1B]" />
+                <Star key={i} className="w-5 h-5 fill-[#CCA25A] text-[#2C200B]" />
               ))}
-              <span className="text-xs font-bold text-[#141C1B] ml-2 font-mono">5.0 Verified Partner Rating</span>
+              <span className="text-xs font-bold text-[#2C200B] ml-2 font-mono">5.0 Verified Partner Rating</span>
             </div>
 
-            <div className="px-3 py-1 rounded-full bg-[#E9ECE6] border border-[#141C1B] text-[#141C1B] font-mono text-xs font-bold">
+            <div className="px-3 py-1 rounded-full bg-[#FFF5B8] border border-[#CCA25A] text-[#2C200B] font-mono text-xs font-bold">
               {current.metric}
             </div>
           </div>
 
-          <p className="text-lg sm:text-xl text-[#141C1B] font-medium leading-relaxed italic mb-8">
+          <p className="text-lg sm:text-xl text-[#2C200B] font-medium leading-relaxed italic mb-8">
             &ldquo;{current.quote}&rdquo;
           </p>
 
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-6 border-t border-[#141C1B]">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-6 border-t border-[#CCA25A]">
             <div>
-              <div className="text-base font-bold font-heading text-[#141C1B]">{current.name}</div>
-              <div className="text-xs text-[#141C1B] font-semibold">
-                {current.role} at <span className="text-[#141C1B] font-bold">{current.agency}</span>
+              <div className="text-base font-bold font-heading text-[#2C200B]">{current.name}</div>
+              <div className="text-xs text-[#3A2A0E] font-semibold">
+                {current.role} at <span className="text-[#2C200B] font-bold">{current.agency}</span>
               </div>
             </div>
 
@@ -108,7 +108,7 @@ export const Testimonials: React.FC = () => {
                 {current.platforms.map((p, i) => (
                   <span
                     key={i}
-                    className="px-2.5 py-1 rounded bg-[#E9ECE6] border border-[#141C1B] text-[10px] font-mono text-[#141C1B] font-bold"
+                    className="px-2.5 py-1 rounded bg-[#FFF5B8] border border-[#CCA25A] text-[10px] font-mono text-[#2C200B] font-bold"
                   >
                     {p}
                   </span>
@@ -119,17 +119,17 @@ export const Testimonials: React.FC = () => {
               <div className="flex items-center gap-2">
                 <button
                   onClick={handlePrev}
-                  className="p-2.5 rounded-xl bg-[#E9ECE6] border border-[#141C1B] hover:bg-white text-[#141C1B] transition-colors shadow-sm"
+                  className="p-2.5 rounded-xl bg-[#FFF5B8] border border-[#CCA25A] hover:bg-[#CCA25A] hover:text-[#FFF5B8] text-[#2C200B] transition-colors shadow-sm"
                   aria-label="Previous Testimonial"
                 >
-                  <ChevronLeft className="w-5 h-5 text-[#141C1B]" />
+                  <ChevronLeft className="w-5 h-5" />
                 </button>
                 <button
                   onClick={handleNext}
-                  className="p-2.5 rounded-xl bg-[#E9ECE6] border border-[#141C1B] hover:bg-white text-[#141C1B] transition-colors shadow-sm"
+                  className="p-2.5 rounded-xl bg-[#FFF5B8] border border-[#CCA25A] hover:bg-[#CCA25A] hover:text-[#FFF5B8] text-[#2C200B] transition-colors shadow-sm"
                   aria-label="Next Testimonial"
                 >
-                  <ChevronRight className="w-5 h-5 text-[#141C1B]" />
+                  <ChevronRight className="w-5 h-5" />
                 </button>
               </div>
             </div>
