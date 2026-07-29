@@ -131,18 +131,18 @@ export const PlatformTabs: React.FC = () => {
   const currentPlatform = PLATFORMS_DATA.find((p) => p.id === activeTab) || PLATFORMS_DATA[0];
 
   return (
-    <section id="platforms" className="py-24 bg-[#FFF5B8] relative overflow-hidden border-b border-[#CCA25A]">
+    <section id="platforms" className="py-24 bg-[#FAF8F5] relative overflow-hidden border-b border-[#E7E5E4]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
+        {/* Section Header (Matching Reference Screenshot Header Style) */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F7E8A1] border border-[#CCA25A] text-[#2C200B] text-xs font-bold">
-            <Layers className="w-3.5 h-3.5 text-[#CCA25A]" />
-            <span>Multi-Channel Integration Suite</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#C84B31]/10 border border-[#C84B31]/20 text-[#C84B31] text-xs font-bold">
+            <Layers className="w-3.5 h-3.5 text-[#C84B31]" />
+            <span>Comprehensive Agency Integrations</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#2C200B] tracking-tight">
-            Native AI Connectors Built for Every Major Marketplace
+          <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#1C1917] tracking-tight">
+            Comprehensive Ecombulls Services Tailored to Your Agency
           </h2>
-          <p className="text-[#3A2A0E] text-base font-medium">
+          <p className="text-[#57534E] text-base font-normal">
             Eliminate manual CSV uploads, API rate limits, and stockout penalties. Ecombulls orchestrates your entire agency store portfolio from a single intelligent engine.
           </p>
         </div>
@@ -151,7 +151,7 @@ export const PlatformTabs: React.FC = () => {
         <div
           role="tablist"
           aria-label="E-commerce Supported Platforms"
-          className="flex items-center justify-start md:justify-center overflow-x-auto no-scrollbar gap-2 p-1.5 bg-[#F7E8A1] border border-[#CCA25A] rounded-2xl mb-12 max-w-4xl mx-auto shadow-sm"
+          className="flex items-center justify-start md:justify-center overflow-x-auto no-scrollbar gap-2 p-1.5 bg-white border border-[#E7E5E4] rounded-2xl mb-12 max-w-4xl mx-auto shadow-sm"
         >
           {PLATFORMS_DATA.map((tab) => {
             const isActive = activeTab === tab.id;
@@ -164,17 +164,17 @@ export const PlatformTabs: React.FC = () => {
                 id={`tab-${tab.id}`}
                 onClick={() => setActiveTab(tab.id)}
                 className={`relative px-5 py-3 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-colors z-10 flex items-center gap-2 ${
-                  isActive ? "text-[#FFF5B8]" : "text-[#2C200B] hover:text-[#CCA25A]"
+                  isActive ? "text-white" : "text-[#1C1917] hover:text-[#C84B31]"
                 }`}
               >
                 {isActive && (
                   <motion.div
                     layoutId="activeTabIndicator"
-                    className="absolute inset-0 bg-[#CCA25A] border border-[#2C200B] rounded-xl shadow-md -z-10"
+                    className="absolute inset-0 bg-[#C84B31] rounded-xl shadow-md -z-10"
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
                   />
                 )}
-                <div className={isActive ? "text-[#FFF5B8]" : "text-[#2C200B]"}>
+                <div className={isActive ? "text-white" : "text-[#1C1917]"}>
                   {tab.logo}
                 </div>
               </button>
@@ -182,7 +182,7 @@ export const PlatformTabs: React.FC = () => {
           })}
         </div>
 
-        {/* Tab Panel Content Display */}
+        {/* Tab Panel Content Display (Matching Service Card Style) */}
         <AnimatePresence mode="wait">
           <motion.div
             key={currentPlatform.id}
@@ -193,46 +193,46 @@ export const PlatformTabs: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.3 }}
-            className="grid grid-cols-1 lg:grid-cols-12 gap-8 bg-[#F7E8A1] border-2 border-[#CCA25A] rounded-3xl p-6 sm:p-10 shadow-xl relative overflow-hidden text-[#2C200B]"
+            className="grid grid-cols-1 lg:grid-cols-12 gap-8 bg-white border border-[#E7E5E4] rounded-3xl p-8 sm:p-12 shadow-xl relative overflow-hidden text-[#1C1917]"
           >
             {/* Left Content Column */}
             <div className="lg:col-span-7 space-y-6">
               <div className="flex items-center gap-3">
-                <span className="px-3 py-1 rounded-full bg-[#CCA25A] text-[#FFF5B8] font-mono text-xs font-bold border border-[#2C200B]">
+                <span className="px-3 py-1 rounded-full bg-[#C84B31] text-white font-mono text-xs font-bold">
                   {currentPlatform.badge}
                 </span>
-                <span className="text-xs font-mono text-[#3A2A0E] flex items-center gap-1 font-bold">
-                  <Zap className="w-3.5 h-3.5 text-[#CCA25A]" />
-                  Sync Latency: <strong className="text-[#2C200B]">{currentPlatform.syncRate}</strong>
+                <span className="text-xs font-mono text-[#57534E] flex items-center gap-1 font-bold">
+                  <Zap className="w-3.5 h-3.5 text-[#C84B31]" />
+                  Sync Latency: <strong className="text-[#1C1917]">{currentPlatform.syncRate}</strong>
                 </span>
               </div>
 
               <div className="flex items-center gap-3">
-                <div className="p-2.5 bg-[#FFF5B8] border border-[#CCA25A] rounded-xl text-[#2C200B]">
+                <div className="w-14 h-14 rounded-2xl bg-[#C84B31]/10 border border-[#C84B31]/20 flex items-center justify-center text-[#C84B31] shrink-0">
                   {currentPlatform.logo}
                 </div>
                 <div>
-                  <h3 className="text-2xl sm:text-3xl font-bold font-heading text-[#2C200B]">
+                  <h3 className="text-2xl sm:text-3xl font-bold font-heading text-[#1C1917]">
                     {currentPlatform.name}
                   </h3>
-                  <p className="text-[#3A2A0E] text-xs sm:text-sm font-semibold">{currentPlatform.subtitle}</p>
+                  <p className="text-[#57534E] text-xs sm:text-sm font-medium">{currentPlatform.subtitle}</p>
                 </div>
               </div>
 
-              <p className="text-[#2C200B] text-sm leading-relaxed font-medium">{currentPlatform.description}</p>
+              <p className="text-[#57534E] text-sm leading-relaxed font-normal">{currentPlatform.description}</p>
 
               {/* Feature Checklist */}
               <div className="space-y-3 pt-2">
-                <h4 className="text-xs font-mono tracking-widest text-[#2C200B] uppercase font-bold">
+                <h4 className="text-xs font-mono tracking-widest text-[#C84B31] uppercase font-bold">
                   KEY AUTOMATION CAPABILITIES
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {currentPlatform.features.map((feat, i) => (
                     <div
                       key={i}
-                      className="flex items-start gap-2.5 p-3 rounded-xl bg-[#FFF5B8] border border-[#CCA25A] text-xs text-[#2C200B] font-medium"
+                      className="flex items-start gap-2.5 p-3.5 rounded-2xl bg-[#FAF8F5] border border-[#E7E5E4] text-xs text-[#1C1917] font-medium"
                     >
-                      <Check className="w-4 h-4 text-[#CCA25A] shrink-0 mt-0.5" />
+                      <Check className="w-4 h-4 text-[#C84B31] shrink-0 mt-0.5" />
                       <span>{feat}</span>
                     </div>
                   ))}
@@ -241,23 +241,23 @@ export const PlatformTabs: React.FC = () => {
             </div>
 
             {/* Right Column */}
-            <div className="lg:col-span-5 flex flex-col justify-between bg-[#FFF5B8] border border-[#CCA25A] p-6 rounded-2xl space-y-6">
+            <div className="lg:col-span-5 flex flex-col justify-between bg-[#FAF8F5] border border-[#E7E5E4] p-6 rounded-2xl space-y-6">
               <div>
-                <div className="flex items-center justify-between pb-4 border-b border-[#CCA25A] mb-6">
+                <div className="flex items-center justify-between pb-4 border-b border-[#E7E5E4] mb-6">
                   <div className="flex items-center gap-2">
-                    <Cpu className="w-5 h-5 text-[#CCA25A]" />
-                    <span className="text-sm font-bold text-[#2C200B] font-heading">Engine Benchmarks</span>
+                    <Cpu className="w-5 h-5 text-[#C84B31]" />
+                    <span className="text-sm font-bold text-[#1C1917] font-heading">Engine Benchmarks</span>
                   </div>
-                  <span className="text-[10px] font-mono text-[#FFF5B8] bg-[#CCA25A] px-2 py-0.5 rounded border border-[#2C200B] font-bold">
+                  <span className="text-[10px] font-mono text-white bg-[#C84B31] px-2.5 py-0.5 rounded-full font-bold">
                     LIVE API Status
                   </span>
                 </div>
 
                 <div className="space-y-4">
                   {currentPlatform.specs.map((spec, idx) => (
-                    <div key={idx} className="flex items-center justify-between text-xs py-2 border-b border-[#CCA25A]/30">
-                      <span className="text-[#3A2A0E] font-bold">{spec.label}</span>
-                      <span className="font-mono font-bold text-[#2C200B] bg-[#F7E8A1] px-2.5 py-1 rounded border border-[#CCA25A]">
+                    <div key={idx} className="flex items-center justify-between text-xs py-2 border-b border-[#E7E5E4]">
+                      <span className="text-[#57534E] font-medium">{spec.label}</span>
+                      <span className="font-mono font-bold text-[#1C1917] bg-white px-2.5 py-1 rounded border border-[#E7E5E4]">
                         {spec.value}
                       </span>
                     </div>
@@ -265,20 +265,20 @@ export const PlatformTabs: React.FC = () => {
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-[#CCA25A] space-y-3">
-                <div className="flex items-center justify-between text-xs text-[#3A2A0E]">
+              <div className="pt-4 border-t border-[#E7E5E4] space-y-3">
+                <div className="flex items-center justify-between text-xs text-[#57534E]">
                   <span className="font-medium">API SLA Uptime:</span>
-                  <span className="text-[#2C200B] font-mono font-bold">99.98% Guaranteed</span>
+                  <span className="text-[#1C1917] font-mono font-bold">99.98% Guaranteed</span>
                 </div>
                 <button
                   onClick={() => {
                     const auditBtn = document.querySelector("button");
                     if (auditBtn) auditBtn.click();
                   }}
-                  className="w-full py-3 rounded-xl bg-[#CCA25A] hover:bg-[#A8813A] border border-[#2C200B] text-[#FFF5B8] font-bold text-xs transition-all flex items-center justify-center gap-2 shadow-md"
+                  className="w-full py-3.5 rounded-xl bg-[#C84B31] hover:bg-[#B03D25] text-white font-bold text-xs transition-all flex items-center justify-center gap-2 shadow-md"
                 >
                   <span>Request {currentPlatform.name} Blueprint</span>
-                  <ArrowUpRight className="w-4 h-4 text-[#FFF5B8]" />
+                  <ArrowUpRight className="w-4 h-4 text-white" />
                 </button>
               </div>
             </div>

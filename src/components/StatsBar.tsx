@@ -42,30 +42,22 @@ export const StatsBar: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 bg-[#F7E8A1] border-b border-[#CCA25A] relative overflow-hidden text-[#2C200B]">
+    <section className="py-20 bg-[#1C1917] border-b border-[#292524] text-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-          {stats.map((stat, idx) => {
-            const Icon = stat.icon;
-            return (
-              <div
-                key={idx}
-                ref={stat.ref}
-                className="p-6 rounded-2xl bg-[#FFF5B8] border-2 border-[#CCA25A] hover:border-[#2C200B] transition-all space-y-2 group text-center lg:text-left shadow-md"
-              >
-                <div className="w-10 h-10 rounded-xl bg-[#F7E8A1] border border-[#CCA25A] flex items-center justify-center text-[#2C200B] mx-auto lg:mx-0 group-hover:scale-110 transition-transform">
-                  <Icon className="w-5 h-5 text-[#CCA25A]" />
-                </div>
-
-                <div className="text-3xl sm:text-4xl font-extrabold font-heading text-[#2C200B] tracking-tight">
-                  {stat.value}
-                </div>
-
-                <div className="text-sm font-bold text-[#2C200B]">{stat.label}</div>
-                <div className="text-xs text-[#3A2A0E] font-medium">{stat.subtext}</div>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 divide-y lg:divide-y-0 lg:divide-x divide-stone-800">
+          {stats.map((stat, idx) => (
+            <div
+              key={idx}
+              ref={stat.ref}
+              className={`p-6 text-center space-y-2 ${idx !== 0 ? "pt-8 lg:pt-6" : ""}`}
+            >
+              <div className="text-4xl sm:text-5xl font-extrabold font-heading text-white tracking-tight">
+                {stat.value}
               </div>
-            );
-          })}
+              <div className="text-sm font-bold text-[#E7E5E4]">{stat.label}</div>
+              <div className="text-xs text-[#A8A29E] font-medium">{stat.subtext}</div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

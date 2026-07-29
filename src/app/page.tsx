@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import dynamic from "next/dynamic";
+import { Navbar } from "@/components/Navbar";
 import { Marquee } from "@/components/Marquee";
 import { Hero } from "@/components/Hero";
 import { LogoStrip } from "@/components/LogoStrip";
@@ -20,7 +21,7 @@ import { AuditModal } from "@/components/AuditModal";
 const DynamicTestimonials = dynamic(() => import("@/components/Testimonials"), {
   ssr: false,
   loading: () => (
-    <div className="py-20 max-w-4xl mx-auto rounded-3xl bg-[#CCA25A] border border-[#2C200B] animate-pulse flex items-center justify-center text-[#FFF5B8] text-xs font-mono font-bold">
+    <div className="py-20 max-w-4xl mx-auto rounded-3xl bg-white border border-[#E7E5E4] animate-pulse flex items-center justify-center text-[#57534E] text-xs font-mono font-bold">
       Loading Partner Verification Stories...
     </div>
   ),
@@ -33,19 +34,25 @@ export default function Home() {
   const handleCloseAuditModal = () => setIsAuditModalOpen(false);
 
   return (
-    <main className="min-h-screen bg-[#FFF5B8] text-[#2C200B] selection:bg-[#CCA25A] selection:text-[#FFF5B8] relative">
-      {/* Top Announcement Scrolling Ticker Line ONLY (No Navbar) */}
-      <div className="sticky top-0 z-50">
+    <main className="min-h-screen bg-[#FAF8F5] text-[#1C1917] selection:bg-[#C84B31] selection:text-white relative">
+      {/* Header Navbar */}
+      <Navbar onOpenAudit={handleOpenAuditModal} />
+
+      {/* Top Announcement Ticker */}
+      <div className="pt-20">
         <Marquee onOpenAudit={handleOpenAuditModal} />
       </div>
 
-      {/* Hero Section */}
+      {/* Hero Section (Matching Reference Screenshot Layout) */}
       <Hero onOpenAudit={handleOpenAuditModal} />
+
+      {/* High-Contrast Dark Stats Banner (Matching Reference Screenshot) */}
+      <StatsBar />
 
       {/* Platform Logo Strip Marquee */}
       <LogoStrip />
 
-      {/* Interactive Platform Tabs */}
+      {/* Interactive Platform Services Cards Grid */}
       <PlatformTabs />
 
       {/* 3-Step Process Timeline */}
@@ -53,9 +60,6 @@ export default function Home() {
 
       {/* Founder Profile — Mudasir Kamal */}
       <FounderSection />
-
-      {/* Key Agency Metrics Bar */}
-      <StatsBar />
 
       {/* Lazy-Loaded Testimonials Carousel */}
       <DynamicTestimonials />

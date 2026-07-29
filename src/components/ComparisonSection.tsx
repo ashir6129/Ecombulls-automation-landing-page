@@ -38,18 +38,18 @@ export const ComparisonSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 bg-[#F7E8A1] relative overflow-hidden border-b border-[#CCA25A] text-[#2C200B]">
+    <section className="py-24 bg-[#FAF8F5] relative overflow-hidden border-b border-[#E7E5E4] text-[#1C1917]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FFF5B8] border border-[#CCA25A] text-[#2C200B] text-xs font-bold">
-            <Zap className="w-3.5 h-3.5 text-[#CCA25A]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#C84B31]/10 border border-[#C84B31]/20 text-[#C84B31] text-xs font-bold">
+            <Zap className="w-3.5 h-3.5 text-[#C84B31]" />
             <span>Why Top Agencies Switch</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#2C200B] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#1C1917] tracking-tight">
             Traditional Manual Agency vs. Ecombulls AI System
           </h2>
-          <p className="text-[#3A2A0E] text-base font-medium">
+          <p className="text-[#57534E] text-base font-normal">
             See how autonomous AI infrastructure outperforms human manual store management across every core operational metric.
           </p>
         </div>
@@ -57,28 +57,28 @@ export const ComparisonSection: React.FC = () => {
         {/* Comparison Table / Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           {/* Left Column: Traditional Agency */}
-          <div className="lg:col-span-6 bg-[#FFF5B8] border-2 border-[#CCA25A] rounded-3xl p-6 sm:p-8 space-y-6 relative overflow-hidden">
-            <div className="flex items-center justify-between pb-4 border-b border-[#CCA25A]">
+          <div className="lg:col-span-6 bg-white border border-[#E7E5E4] rounded-3xl p-6 sm:p-8 space-y-6 relative shadow-md overflow-hidden">
+            <div className="flex items-center justify-between pb-4 border-b border-[#E7E5E4]">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[#F7E8A1] border border-[#CCA25A] flex items-center justify-center text-[#2C200B]">
+                <div className="w-10 h-10 rounded-xl bg-red-100 border border-red-200 flex items-center justify-center text-red-600">
                   <AlertTriangle className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold font-heading text-[#2C200B]">Traditional Agency Model</h3>
-                  <p className="text-xs text-[#3A2A0E] font-semibold">Manual & Vulnerable to Errors</p>
+                  <h3 className="text-lg font-bold font-heading text-[#1C1917]">Traditional Agency Model</h3>
+                  <p className="text-xs text-red-600 font-semibold">Manual & Vulnerable to Errors</p>
                 </div>
               </div>
-              <span className="px-2.5 py-1 rounded bg-[#F7E8A1] text-[#2C200B] font-mono text-[10px] uppercase font-bold border border-[#CCA25A]">
+              <span className="px-2.5 py-1 rounded-full bg-red-100 text-red-600 font-mono text-[10px] uppercase font-bold border border-red-200">
                 HIGH RISK
               </span>
             </div>
 
             <div className="space-y-4">
               {comparisonItems.map((item, idx) => (
-                <div key={idx} className="p-4 rounded-xl bg-[#F7E8A1] border border-[#CCA25A] space-y-1">
-                  <div className="text-xs font-mono text-[#2C200B] font-bold">{item.feature}</div>
-                  <div className="text-sm text-[#3A2A0E] flex items-start gap-2 font-medium">
-                    <XCircle className="w-4 h-4 text-[#CCA25A] shrink-0 mt-0.5" />
+                <div key={idx} className="p-4 rounded-2xl bg-[#FAF8F5] border border-[#E7E5E4] space-y-1">
+                  <div className="text-xs font-mono text-[#1C1917] font-bold">{item.feature}</div>
+                  <div className="text-sm text-red-700 flex items-start gap-2 font-medium">
+                    <XCircle className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
                     <span>{item.manual}</span>
                   </div>
                 </div>
@@ -87,30 +87,30 @@ export const ComparisonSection: React.FC = () => {
           </div>
 
           {/* Right Column: Ecombulls AI System */}
-          <div className="lg:col-span-6 bg-[#FFF5B8] border-2 border-[#2C200B] rounded-3xl p-6 sm:p-8 space-y-6 relative shadow-xl overflow-hidden">
-            <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#CCA25A]" />
+          <div className="lg:col-span-6 bg-white border-2 border-[#C84B31] rounded-3xl p-6 sm:p-8 space-y-6 relative shadow-xl overflow-hidden">
+            <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#C84B31]" />
 
-            <div className="flex items-center justify-between pb-4 border-b border-[#CCA25A]">
+            <div className="flex items-center justify-between pb-4 border-b border-[#E7E5E4]">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[#CCA25A] border border-[#2C200B] flex items-center justify-center text-[#FFF5B8]">
+                <div className="w-10 h-10 rounded-xl bg-[#C84B31] border border-[#C84B31] flex items-center justify-center text-white shadow-md">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold font-heading text-[#2C200B]">Ecombulls AI Engine</h3>
-                  <p className="text-xs text-[#3A2A0E] font-semibold">Autonomous & Microsecond Latency</p>
+                  <h3 className="text-lg font-bold font-heading text-[#1C1917]">Ecombulls AI Engine</h3>
+                  <p className="text-xs text-[#C84B31] font-semibold">Autonomous & Microsecond Latency</p>
                 </div>
               </div>
-              <span className="px-2.5 py-1 rounded bg-[#CCA25A] text-[#FFF5B8] font-mono text-[10px] uppercase font-bold border border-[#2C200B]">
+              <span className="px-2.5 py-1 rounded-full bg-[#C84B31] text-white font-mono text-[10px] uppercase font-bold shadow-sm">
                 RECOMMENDED
               </span>
             </div>
 
             <div className="space-y-4">
               {comparisonItems.map((item, idx) => (
-                <div key={idx} className="p-4 rounded-xl bg-[#F7E8A1] border border-[#CCA25A] space-y-1">
-                  <div className="text-xs font-mono text-[#2C200B] font-bold">{item.feature}</div>
-                  <div className="text-sm text-[#2C200B] font-bold flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#CCA25A] shrink-0 mt-0.5" />
+                <div key={idx} className="p-4 rounded-2xl bg-[#C84B31]/5 border border-[#C84B31]/20 space-y-1">
+                  <div className="text-xs font-mono text-[#1C1917] font-bold">{item.feature}</div>
+                  <div className="text-sm text-[#1C1917] font-bold flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-[#C84B31] shrink-0 mt-0.5" />
                     <span>{item.ecombulls}</span>
                   </div>
                 </div>

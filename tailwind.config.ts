@@ -9,26 +9,27 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#FFF5B8",
-        gold: {
-          DEFAULT: "#CCA25A",
-          dark: "#A8813A",
-          hover: "#B8914B",
-          light: "#E5C889",
+        background: "#FAF8F5",
+        accent: {
+          DEFAULT: "#C84B31",
+          hover: "#B03D25",
+          light: "#FDF2F0",
         },
+        gold: "#CCA25A",
+        dark: "#1C1917",
         surface: {
-          DEFAULT: "#F7E8A1",
-          elevated: "#EFE094",
-          light: "#FFF5B8",
+          DEFAULT: "#FFFFFF",
+          warm: "#F5F2EC",
+          dark: "#1C1917",
         },
         border: {
-          DEFAULT: "#CCA25A",
-          dark: "#2C200B",
+          DEFAULT: "#E7E5E4",
+          accent: "#C84B31",
         },
         text: {
-          primary: "#2C200B",
-          muted: "#3A2A0E",
-          dim: "#5C451A",
+          primary: "#1C1917",
+          muted: "#57534E",
+          dim: "#78716C",
         },
       },
       fontFamily: {

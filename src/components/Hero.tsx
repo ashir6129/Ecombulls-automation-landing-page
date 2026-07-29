@@ -1,23 +1,11 @@
 "use client";
 
 import React from "react";
-import dynamic from "next/dynamic";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, ShieldCheck, Sparkles, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, ShieldCheck } from "lucide-react";
 import { MOTION_TOKENS, fadeInVariants } from "@/lib/motion";
 import { AmazonLogo, EBayLogo, WalmartLogo, TikTokShopLogo, ShopifyLogo } from "./PlatformLogos";
-
-const DynamicHeroSyncDiagram = dynamic(
-  () => import("./HeroSyncDiagram"),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="w-full aspect-square max-w-[480px] mx-auto rounded-3xl bg-[#F7E8A1] border border-[#CCA25A] animate-pulse flex items-center justify-center text-[#2C200B] text-xs font-mono font-bold">
-        Initializing AI Engine Sync Diagram...
-      </div>
-    ),
-  }
-);
 
 interface HeroProps {
   onOpenAudit: () => void;
@@ -25,9 +13,9 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onOpenAudit }) => {
   return (
-    <section className="relative pt-16 pb-20 md:pt-24 md:pb-28 bg-[#FFF5B8] overflow-hidden border-b border-[#CCA25A]">
+    <section className="relative pt-12 pb-20 md:pt-16 md:pb-24 bg-[#FAF8F5] overflow-hidden border-b border-[#E7E5E4]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-12 items-center">
           {/* Left Column */}
           <motion.div
             initial="hidden"
@@ -41,114 +29,100 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAudit }) => {
             }}
             className="lg:col-span-7 space-y-6 text-center lg:text-left"
           >
-            {/* Tagline Pill */}
+            {/* Terracotta Subtitle Tag */}
             <motion.div variants={fadeInVariants} custom={0}>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F7E8A1] border border-[#CCA25A] text-[#2C200B] text-xs font-bold shadow-sm">
-                <Sparkles className="w-4 h-4 text-[#2C200B]" />
-                <span>The AI Operating System for E-Commerce Agencies</span>
-              </div>
+              <span className="text-[#C84B31] font-bold text-sm sm:text-base tracking-wide uppercase font-mono">
+                E-Commerce AI Automation, Beyond Compare!
+              </span>
             </motion.div>
 
-            {/* Main Headline */}
+            {/* Main Headline (Matching Reference Screenshot H1 Style) */}
             <motion.h1
               variants={fadeInVariants}
               custom={1}
-              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-[#2C200B] tracking-tight leading-[1.1]"
+              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-[#1C1917] tracking-tight leading-[1.15]"
             >
-              Scale Agency Stores with{" "}
-              <span className="text-[#CCA25A] underline decoration-[#2C200B] underline-offset-8">
-                Autonomous AI Systems
-              </span>
+              Transform Your Agency Stores with Our Expert AI Systems
             </motion.h1>
 
             {/* Subheadline */}
             <motion.p
               variants={fadeInVariants}
               custom={2}
-              className="text-base sm:text-lg text-[#3A2A0E] max-w-2xl mx-auto lg:mx-0 font-medium leading-relaxed"
+              className="text-base sm:text-lg text-[#57534E] max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed"
             >
-              Ecombulls automates inventory syncing, order routing, repricing engines, and product catalog synchronization across <strong className="text-[#2C200B] underline">Amazon, eBay, Walmart, TikTok Shop, and Shopify</strong> with zero human latency.
+              Welcome to a world of immaculate store synchronization. Ecombulls automates inventory syncing, order routing, repricing engines, and catalog distribution across Amazon, eBay, Walmart, TikTok Shop, and Shopify with zero human latency.
             </motion.p>
 
-            {/* Brand Vector Logo Row */}
+            {/* Call to Action Pill Button */}
             <motion.div
               variants={fadeInVariants}
               custom={3}
-              className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-1"
-            >
-              <div className="p-2.5 rounded-xl bg-[#F7E8A1] border border-[#CCA25A]">
-                <AmazonLogo className="h-4 w-auto text-[#2C200B]" />
-              </div>
-              <div className="p-2.5 rounded-xl bg-[#F7E8A1] border border-[#CCA25A]">
-                <EBayLogo className="h-4 w-auto" />
-              </div>
-              <div className="p-2.5 rounded-xl bg-[#F7E8A1] border border-[#CCA25A]">
-                <WalmartLogo className="h-4 w-auto text-[#2C200B]" />
-              </div>
-              <div className="p-2.5 rounded-xl bg-[#F7E8A1] border border-[#CCA25A]">
-                <TikTokShopLogo className="h-4 w-auto text-[#2C200B]" />
-              </div>
-              <div className="p-2.5 rounded-xl bg-[#F7E8A1] border border-[#CCA25A]">
-                <ShopifyLogo className="h-4 w-auto text-[#2C200B]" />
-              </div>
-            </motion.div>
-
-            {/* Key Value Proposition Badges */}
-            <motion.div
-              variants={fadeInVariants}
-              custom={4}
-              className="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-bold text-[#2C200B] pt-1"
-            >
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-[#CCA25A]" />
-                <span>Zero Stock-out Latency</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-[#CCA25A]" />
-                <span>No API Overages</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-[#CCA25A]" />
-                <span>100% SLA Guarantee</span>
-              </div>
-            </motion.div>
-
-            {/* Call to Action Buttons */}
-            <motion.div
-              variants={fadeInVariants}
-              custom={5}
               className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2"
             >
               <button
                 onClick={onOpenAudit}
-                className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#CCA25A] hover:bg-[#A8813A] text-[#FFF5B8] font-bold text-base border border-[#2C200B] transition-all shadow-lg flex items-center justify-center gap-3 group"
+                className="w-full sm:w-auto px-9 py-4 rounded-xl bg-[#C84B31] hover:bg-[#B03D25] text-white font-bold text-base transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-3 group"
               >
-                <span>Book Free Automation Audit</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform text-[#FFF5B8]" />
+                <span>Book Audit Now</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform text-white" />
               </button>
 
               <a
                 href="#platforms"
-                className="w-full sm:w-auto px-7 py-4 rounded-xl bg-[#F7E8A1] border border-[#CCA25A] hover:bg-[#CCA25A] hover:text-[#FFF5B8] text-[#2C200B] font-bold text-base transition-all flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-7 py-4 rounded-xl bg-white border border-[#E7E5E4] hover:border-[#C84B31] text-[#1C1917] font-bold text-base transition-all flex items-center justify-center gap-2 shadow-sm"
               >
-                <span>Explore Supported Platforms</span>
+                <span>Explore Platforms</span>
               </a>
             </motion.div>
 
-            {/* Trust Footnote */}
+            {/* Brand Logo Row */}
             <motion.div
               variants={fadeInVariants}
-              custom={6}
-              className="pt-2 text-xs text-[#3A2A0E] font-semibold flex items-center justify-center lg:justify-start gap-2"
+              custom={4}
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4 border-t border-[#E7E5E4]"
             >
-              <ShieldCheck className="w-4 h-4 text-[#CCA25A]" />
-              <span>Trusted by 45+ E-commerce Growth Agencies worldwide</span>
+              <span className="text-xs font-mono font-bold text-[#78716C] uppercase mr-2">Supported:</span>
+              <div className="p-2 rounded-xl bg-white border border-[#E7E5E4] shadow-sm">
+                <AmazonLogo className="h-4 w-auto text-[#1C1917]" />
+              </div>
+              <div className="p-2 rounded-xl bg-white border border-[#E7E5E4] shadow-sm">
+                <EBayLogo className="h-4 w-auto" />
+              </div>
+              <div className="p-2 rounded-xl bg-white border border-[#E7E5E4] shadow-sm">
+                <WalmartLogo className="h-4 w-auto text-[#1C1917]" />
+              </div>
+              <div className="p-2 rounded-xl bg-white border border-[#E7E5E4] shadow-sm">
+                <TikTokShopLogo className="h-4 w-auto text-[#1C1917]" />
+              </div>
+              <div className="p-2 rounded-xl bg-white border border-[#E7E5E4] shadow-sm">
+                <ShopifyLogo className="h-4 w-auto text-[#1C1917]" />
+              </div>
             </motion.div>
           </motion.div>
 
-          {/* Right Column: Dynamic SVG Diagram */}
+          {/* Right Column: Rounded Photo Card (Matching Reference Screenshot Layout) */}
           <div className="lg:col-span-5 relative">
-            <DynamicHeroSyncDiagram />
+            <div className="relative w-full aspect-[4/5] max-w-[480px] mx-auto rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+              <Image
+                src="/images/hero-agency.jpg"
+                alt="Ecombulls AI Agency Automation Team"
+                fill
+                sizes="(max-width: 1024px) 100vw, 480px"
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1C1917]/70 via-transparent to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/95 backdrop-blur-sm border border-[#E7E5E4] shadow-lg">
+                <div className="flex items-center gap-2 text-xs font-mono text-[#C84B31] font-bold">
+                  <ShieldCheck className="w-4 h-4 text-[#C84B31]" />
+                  <span>99.8% Uptime SLA Guarantee</span>
+                </div>
+                <div className="text-sm font-bold text-[#1C1917] mt-1 font-heading">
+                  Automating 50M+ GMV Across 45+ Agency Portfolios
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

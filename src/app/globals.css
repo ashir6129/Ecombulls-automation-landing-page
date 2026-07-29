@@ -3,15 +3,16 @@
 @tailwind utilities;
 
 :root {
-  --color-background: #fff5b8;
+  --color-accent: #c84b31;
+  --color-accent-hover: #b03d25;
   --color-gold: #cca25a;
-  --color-gold-dark: #a8813a;
-  --color-surface: #f7e8a1;
-  --color-surface-elevated: #efe094;
-  --color-border: #cca25a;
-  --color-text-primary: #2c200b;
-  --color-text-muted: #3a2a0e;
-  --color-text-dim: #5c451a;
+  --color-background: #faf8f5;
+  --color-surface: #ffffff;
+  --color-surface-dark: #1c1917;
+  --color-border: #e7e5e4;
+  --color-text-primary: #1c1917;
+  --color-text-muted: #57534e;
+  --color-text-dim: #78716c;
 }
 
 * {
@@ -26,8 +27,8 @@ html {
 }
 
 body {
-  background-color: #fff5b8;
-  color: #2c200b;
+  background-color: #faf8f5;
+  color: #1c1917;
   font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -39,25 +40,25 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #fff5b8;
+  background: #faf8f5;
 }
 ::-webkit-scrollbar-thumb {
-  background: #cca25a;
+  background: #c84b31;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #a8813a;
+  background: #b03d25;
 }
 
 /* Custom Selection */
 ::selection {
-  background: #cca25a;
-  color: #fff5b8;
+  background: #c84b31;
+  color: #ffffff;
 }
 
 /* Focus Ring Custom Utility */
 *:focus-visible {
-  outline: 2px solid #cca25a;
+  outline: 2px solid #c84b31;
   outline-offset: 2px;
 }
 
@@ -77,4 +78,16 @@ body {
     black 90%,
     transparent 100%
   );
+}
+
+/* Card Shadow Utilities */
+.card-shadow {
+  box-shadow: 0 10px 30px -5px rgba(28, 25, 23, 0.05), 0 0 0 1px rgba(28, 25, 23, 0.08);
+}
+.card-shadow-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-shadow-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -10px rgba(200, 75, 49, 0.12), 0 0 0 1px rgba(200, 75, 49, 0.2);
 }

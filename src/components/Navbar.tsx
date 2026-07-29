@@ -9,12 +9,16 @@ interface NavbarProps {
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenAudit }) => {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -23,131 +27,114 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAudit }) => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        scrolled
-          ? "bg-[#0A0A0A]/95 border-b border-[#0F3D35] py-3 shadow-2xl"
+        isScrolled
+          ? "bg-[#FAF8F5]/90 backdrop-blur-md border-b border-[#E7E5E4] py-3.5 shadow-sm"
           : "bg-transparent py-5"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Brand Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-xl bg-[#0F3D35] border border-[#145449] flex items-center justify-center text-white shadow-md">
-            <Zap className="w-5 h-5 fill-white text-white" />
-          </div>
-          <div>
-            <span className="text-xl font-extrabold font-heading tracking-tight text-white flex items-center gap-1.5">
-              ECOMBULLS
-              <span className="w-2 h-2 rounded-full bg-[#0F3D35]" />
-            </span>
-            <span className="block text-[10px] font-mono tracking-widest text-text-muted uppercase">
-              AI ECOM AUTOMATION
-            </span>
-          </div>
-        </Link>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between">
+          {/* Brand Logo */}
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <div className="w-10 h-10 rounded-xl bg-[#C84B31] flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
+              <Zap className="w-5 h-5 fill-white" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-xl font-extrabold font-heading text-[#1C1917] tracking-tight">
+                ECOMBULLS
+              </span>
+              <span className="text-[9px] font-mono font-bold text-[#C84B31] -mt-1 tracking-widest uppercase">
+                AI OPERATING SYSTEM
+              </span>
+            </div>
+          </Link>
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-text-muted">
-          <a href="#platforms" className="hover:text-white transition-colors">
-            Platforms
-          </a>
-          <a href="#how-it-works" className="hover:text-white transition-colors">
-            How It Works
-          </a>
-          <a href="#founder" className="hover:text-white transition-colors">
-            Founder
-          </a>
-          <a href="#results" className="hover:text-white transition-colors">
-            Results
-          </a>
-          <a href="#pricing" className="hover:text-white transition-colors">
-            Pricing
-          </a>
-          <a href="#faq" className="hover:text-white transition-colors">
-            FAQ
-          </a>
-        </nav>
-
-        {/* Right Section */}
-        <div className="hidden sm:flex items-center gap-4">
-          <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#121212] border border-[#0F3D35] text-[11px] font-mono text-text-muted">
-            <span className="w-2 h-2 rounded-full bg-[#0F3D35]" />
-            <span>AI Engines 99.8% Online</span>
-          </div>
-
-          <button
-            onClick={onOpenAudit}
-            className="px-5 py-2.5 rounded-xl bg-[#0F3D35] hover:bg-[#145449] text-white font-bold text-sm border border-[#145449] transition-all flex items-center gap-2"
-          >
-            <span>Book Audit</span>
-            <ArrowRight className="w-4 h-4 text-white" />
-          </button>
-        </div>
-
-        {/* Mobile Menu Toggle */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-text-muted hover:text-white rounded-lg"
-          aria-label="Toggle Navigation Menu"
-        >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
-      </div>
-
-      {/* Mobile Dropdown Menu */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-[#0A0A0A] border-b border-[#0F3D35] px-6 py-6 space-y-4">
-          <nav className="flex flex-col space-y-3 text-base font-medium text-text-muted">
-            <a
-              href="#platforms"
-              onClick={() => setMobileMenuOpen(false)}
-              className="hover:text-white"
-            >
+          {/* Navigation Links */}
+          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-[#57534E]">
+            <a href="#" className="text-[#1C1917] font-bold hover:text-[#C84B31] transition-colors">
+              Home
+            </a>
+            <a href="#platforms" className="hover:text-[#C84B31] transition-colors">
               Platforms
             </a>
-            <a
-              href="#how-it-works"
-              onClick={() => setMobileMenuOpen(false)}
-              className="hover:text-white"
-            >
-              How It Works
+            <a href="#how-it-works" className="hover:text-[#C84B31] transition-colors">
+              Blueprint
             </a>
-            <a
-              href="#founder"
-              onClick={() => setMobileMenuOpen(false)}
-              className="hover:text-white"
-            >
+            <a href="#founder" className="hover:text-[#C84B31] transition-colors">
               Founder
             </a>
-            <a
-              href="#results"
-              onClick={() => setMobileMenuOpen(false)}
-              className="hover:text-white"
-            >
-              Results
-            </a>
-            <a
-              href="#pricing"
-              onClick={() => setMobileMenuOpen(false)}
-              className="hover:text-white"
-            >
+            <a href="#pricing" className="hover:text-[#C84B31] transition-colors">
               Pricing
             </a>
-            <a
-              href="#faq"
-              onClick={() => setMobileMenuOpen(false)}
-              className="hover:text-white"
+            <a href="#faq" className="hover:text-[#C84B31] transition-colors">
+              FAQ
+            </a>
+          </nav>
+
+          {/* Right Action Buttons */}
+          <div className="hidden md:flex items-center gap-4">
+            <button
+              onClick={onOpenAudit}
+              className="text-xs font-bold text-[#57534E] hover:text-[#1C1917] transition-colors px-3 py-2"
             >
+              Sign In
+            </button>
+            <button
+              onClick={onOpenAudit}
+              className="px-6 py-2.5 rounded-xl bg-[#C84B31] hover:bg-[#B03D25] text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center gap-2"
+            >
+              <span>Book Audit</span>
+              <ArrowRight className="w-4 h-4 text-white" />
+            </button>
+          </div>
+
+          {/* Mobile Menu Toggle */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden p-2 text-[#1C1917] rounded-lg border border-[#E7E5E4]"
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Drawer Navigation */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-[#FAF8F5] border-b border-[#E7E5E4] px-4 pt-4 pb-6 space-y-4 shadow-lg">
+          <nav className="flex flex-col gap-3 text-base font-medium text-[#1C1917]">
+            <a
+              href="#"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="py-1 font-bold text-[#C84B31]"
+            >
+              Home
+            </a>
+            <a href="#platforms" onClick={() => setIsMobileMenuOpen(false)} className="py-1">
+              Platforms
+            </a>
+            <a href="#how-it-works" onClick={() => setIsMobileMenuOpen(false)} className="py-1">
+              Blueprint
+            </a>
+            <a href="#founder" onClick={() => setIsMobileMenuOpen(false)} className="py-1">
+              Founder
+            </a>
+            <a href="#pricing" onClick={() => setIsMobileMenuOpen(false)} className="py-1">
+              Pricing
+            </a>
+            <a href="#faq" onClick={() => setIsMobileMenuOpen(false)} className="py-1">
               FAQ
             </a>
           </nav>
           <button
             onClick={() => {
-              setMobileMenuOpen(false);
+              setIsMobileMenuOpen(false);
               onOpenAudit();
             }}
-            className="w-full py-3 bg-[#0F3D35] text-white font-bold rounded-xl text-center border border-[#145449]"
+            className="w-full py-3 rounded-xl bg-[#C84B31] text-white font-bold text-sm shadow-md flex items-center justify-center gap-2"
           >
-            Book Automation Audit
+            <span>Book Free Audit</span>
+            <ArrowRight className="w-4 h-4 text-white" />
           </button>
         </div>
       )}
